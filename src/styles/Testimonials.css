@@ -196,21 +196,19 @@
   }
 }
 
-@media (max-width: 640px) {
-  .testimonials-section {
-    padding: 60px 0;
+@media (max-width: 768px) {
+  .testimonials-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
   }
 
-  .testimonials-container {
-    padding: 0 20px;
+  .carousel-controls {
+    margin-top: 4px !important;
+    margin-bottom: 24px !important;
   }
 
   .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .testimonials-heading {
-    font-size: 28px;
+    grid-template-columns: 1fr !important;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Testimonials.css';
 import avatar1 from '../assets/avatar-1.png';
 import avatar2 from '../assets/avatar-2.png';
@@ -49,17 +49,40 @@ const Testimonials = () => {
     },
   ];
 
-  const [startIndex, setStartIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Mobile Auto Scroll Carousel Timer
+  useEffect(() => {
+    if (!isMobile) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000); // Auto scroll every 4 seconds
+    return () => clearInterval(interval);
+  }, [isMobile, testimonials.length]);
 
   const handlePrev = () => {
-    setStartIndex((prev) => (prev === 0 ? testimonials.length - 3 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setStartIndex((prev) => (prev >= testimonials.length - 3 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
-  const visibleTestimonials = testimonials.slice(startIndex, startIndex + 3);
+  // On Mobile: show exactly 1 card. On Desktop: show 3 cards.
+  const visibleTestimonials = isMobile
+    ? [testimonials[currentIndex]]
+    : testimonials.slice(currentIndex, currentIndex + 3).length === 3
+    ? testimonials.slice(currentIndex, currentIndex + 3)
+    : [...testimonials.slice(currentIndex), ...testimonials.slice(0, 3 - (testimonials.length - currentIndex))];
 
   return (
     <section className="testimonials-section">
