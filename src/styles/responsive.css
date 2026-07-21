@@ -1,0 +1,211 @@
+/* Comprehensive Mobile & Tablet Global Responsive Stylesheet */
+
+@media (max-width: 1024px) {
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* General section paddings */
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Containers */
+  .navbar-container,
+  .hero-container,
+  .about-container,
+  .overview-container,
+  .products-container,
+  .testimonials-container,
+  .blog-container,
+  .footer-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Global Headings Mobile Font Sizes */
+  .hero-heading {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+  }
+
+  .about-heading,
+  .overview-heading,
+  .products-heading,
+  .testimonials-heading,
+  .blog-heading {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Subtitles */
+  .welcome-script,
+  .subtitle-text {
+    font-size: 24px !important;
+  }
+
+@media (max-width: 900px) {
+  /* Navbar Header Mobile Layout matching screenshot */
+  .navbar-header {
+    height: 70px !important;
+    padding: 0 16px !important;
+  }
+
+  .navbar-container {
+    padding: 0 !important;
+  }
+
+  .navbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .contact-info {
+    display: none !important;
+  }
+
+  .enquire-btn {
+    display: block !important;
+    padding: 8px 18px !important;
+    font-size: 13px !important;
+    border-radius: 20px !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+    margin-left: 4px !important;
+  }
+
+  .mobile-toggle .bar {
+    width: 24px !important;
+    height: 3px !important;
+  }
+
+  /* Hero Section Mobile Layout matching screenshot */
+  .hero-section {
+    margin-top: 70px !important;
+  }
+
+  .hero-container {
+    flex-direction: column !important;
+  }
+
+  .hero-content {
+    padding: 40px 20px !important;
+  }
+
+  .welcome-script {
+    font-size: 26px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-heading {
+    font-size: 36px !important;
+    line-height: 1.12 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .contact-us-btn {
+    padding: 4px 4px 4px 18px !important;
+  }
+
+  .hero-graphic {
+    min-height: 280px !important;
+    width: 100% !important;
+  }
+
+  .vessels-img {
+    max-height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+  /* About Section Mobile */
+  .about-container {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .about-features {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  /* Company Overview Mobile */
+  .overview-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  .overview-images-column {
+    width: 100% !important;
+    min-height: 300px !important;
+  }
+
+  .img-top-right,
+  .img-bottom-left {
+    height: 200px !important;
+  }
+
+  /* Products Grid Mobile (1 Column) */
+  .products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* Testimonials Grid Mobile (1 Column) */
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .testimonials-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* Blog Grid Mobile (1 Column) */
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .blog-image-wrapper {
+    height: 240px !important;
+  }
+
+  /* Footer Mobile */
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .footer-top-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+
+  /* Floating Scroll Button */
+  .scroll-to-top {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}

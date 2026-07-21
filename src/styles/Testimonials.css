@@ -1,0 +1,216 @@
+.testimonials-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px 0;
+  color: #1a1a1a;
+}
+
+.testimonials-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Navigation Arrows */
+.testimonials-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.testimonials-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.testimonials-subtitle .subtitle-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2ed573;
+  font-style: italic;
+}
+
+.testimonials-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0c0b20;
+  letter-spacing: -0.5px;
+}
+
+/* Carousel Control Arrow Buttons */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.control-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.control-btn svg {
+  stroke: #0c0b20;
+  transition: stroke 0.2s ease;
+}
+
+.control-btn:hover {
+  border-color: #ff6b1a;
+  background-color: #ff6b1a;
+}
+
+.control-btn:hover svg {
+  stroke: #ffffff;
+}
+
+/* 3 Column Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 32px 28px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Google Rating Badge Pill */
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f5f3ff;
+  padding: 8px 18px;
+  border-radius: 24px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #ff6b1a;
+  font-size: 22px;
+}
+
+/* Quote Text */
+.testimonial-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+/* Divider */
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin-bottom: 24px;
+}
+
+/* Author Info Footer */
+.author-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 2px solid #ff6b1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0c0b20;
+  margin-bottom: 2px;
+}
+
+.author-role {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-heading {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testimonials-container {
+    padding: 0 20px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .testimonials-heading {
+    font-size: 28px;
+  }
+}
