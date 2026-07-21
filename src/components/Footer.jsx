@@ -10,14 +10,16 @@ const Footer = () => {
         <div className="footer-main-grid">
           {/* Column 1: Brand Logo, Mission Paragraph & Social Icons below */}
           <div className="footer-col brand-col">
-            <div className="footer-logo">
-              <img src={logo} alt="UKL Instruments Logo" />
+            <div className="brand-logo-description">
+              <div className="footer-logo">
+                <img src={logo} alt="UKL Instruments Logo" />
+              </div>
+              <p className="brand-description">
+                UKL was started in the year 1998 with the sole aim of providing high
+                quality water treatment components which were by and large imported
+                from other countries.
+              </p>
             </div>
-            <p className="brand-description">
-              UKL was started in the year 1998 with the sole aim of providing high
-              quality water treatment components which were by and large imported
-              from other countries.
-            </p>
 
             {/* Social Icons positioned below brand paragraph */}
             <div className="footer-social-icons">
