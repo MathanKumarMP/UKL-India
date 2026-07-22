@@ -1,0 +1,6 @@
+/* Quality Page Layout Styles */
+.quality-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

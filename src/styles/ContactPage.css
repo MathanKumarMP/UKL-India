@@ -1,0 +1,6 @@
+/* Contact Page Layout Styles */
+.contact-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

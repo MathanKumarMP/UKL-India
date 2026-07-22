@@ -1,0 +1,6 @@
+/* Home Page Layout Styles */
+.home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

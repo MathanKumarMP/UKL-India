@@ -1,0 +1,141 @@
+.mission-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px 0 90px 0;
+}
+
+.mission-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Base Card Styles */
+.mv-card {
+  border-radius: 28px;
+  padding: 44px 38px 40px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Default Light Unhovered State */
+.mv-card.default-light {
+  background-color: #ffffff;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f3f6;
+  transform: translateY(0);
+}
+
+.mv-card.default-light .card-title {
+  color: #0d0c22;
+}
+
+.mv-card.default-light .card-text {
+  color: #555555;
+}
+
+/* 2. Hovered / Active Dark State (As shown on Mission card) */
+.mv-card.active-dark {
+  background-color: #06060c;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+  transform: translateY(-8px);
+  border: 1px solid #06060c;
+}
+
+.mv-card.active-dark .card-title {
+  color: #ffffff;
+}
+
+.mv-card.active-dark .card-text {
+  color: #e2e8f0;
+}
+
+/* Card Icon Wrapper */
+.card-icon-wrapper {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.mv-card:hover .card-icon-wrapper {
+  transform: scale(1.06);
+}
+
+/* Card Title */
+.card-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+}
+
+/* Card Text Body */
+.card-text {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.68;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Bottom Dashed Accent Line (matching bottom border dots in screenshot) */
+.card-bottom-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #ffffff,
+    #ffffff 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mv-card.active-dark .card-bottom-accent {
+  opacity: 0.9;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mission-container {
+    padding: 0 20px;
+  }
+
+  .mv-card {
+    padding: 35px 26px;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,201 @@
+.quality-certs-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 70px 0 100px 0;
+}
+
+.quality-certs-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Intro Header */
+.quality-intro-header {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto 60px auto;
+}
+
+.quality-intro-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 22px 0;
+  letter-spacing: -0.5px;
+}
+
+.quality-intro-paragraph {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.76;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* 4 Accreditation Cards Stack */
+.certs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+  min-height: 290px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+}
+
+/* Left Light Gray Box */
+.cert-card-left {
+  flex: 0.85;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+  border-right: 1px solid #eef2f6;
+}
+
+/* Logos */
+.cert-logo-iso {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tuv-badge {
+  background-color: #0c4a6e;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.iso-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.iso-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0c4a6e;
+}
+
+/* Right Content Column */
+.cert-card-right {
+  flex: 1.15;
+  padding: 45px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cert-title {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.3px;
+}
+
+.cert-description {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: #4b5563;
+  margin: 0 0 26px 0;
+}
+
+/* Download / View Certificate Button */
+.cert-download-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0f4c81;
+  border: none;
+  border-radius: 30px;
+  padding: 4px 5px 4px 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(15, 76, 129, 0.2);
+}
+
+.cert-download-btn:hover {
+  transform: translateY(-2px);
+  background-color: #135ba0;
+}
+
+.cert-download-btn .btn-text {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.btn-green-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #20bf6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14px;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .cert-card {
+    flex-direction: column;
+  }
+
+  .cert-card-left {
+    padding: 35px 20px;
+    border-right: none;
+    border-bottom: 1px solid #eef2f6;
+  }
+
+  .cert-card-right {
+    padding: 35px 25px;
+  }
+
+  .quality-intro-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .quality-certs-section {
+    padding: 50px 0 60px 0;
+  }
+
+  .quality-certs-container {
+    padding: 0 20px;
+  }
+
+  .quality-intro-title {
+    font-size: 28px;
+  }
+}

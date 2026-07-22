@@ -1,0 +1,6 @@
+/* News Page Layout Styles */
+.news-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,6 @@
+/* Product Page Layout Styles */
+.product-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
