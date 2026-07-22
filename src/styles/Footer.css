@@ -102,7 +102,7 @@
 /* Main 4 Column Grid */
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+  grid-template-columns: 2.3fr 1fr 1fr 1.4fr;
   gap: 40px;
 }
 

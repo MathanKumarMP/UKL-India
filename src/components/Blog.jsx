@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Blog.css';
-import blogImg1 from '../assets/prod-1.png';
-import blogImg2 from '../assets/prod-2.png';
+import blogImg1 from '../assets/blog1.JPG';
+import blogImg2 from '../assets/Explore2.png';
 import ScrollReveal from './ScrollReveal';
 
 const Blog = () => {

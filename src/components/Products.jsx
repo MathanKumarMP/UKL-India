@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Products.css';
-import prod1 from '../assets/prod-1.png';
-import prod2 from '../assets/prod-2.png';
-import prod3 from '../assets/prod-3.png';
-import prod4 from '../assets/prod-4.png';
+import prod1 from '../assets/Explore1.png';
+import prod2 from '../assets/Explore2.png';
+import prod3 from '../assets/Explore3.png';
+import prod4 from '../assets/Explore4.png';
 import ScrollReveal from './ScrollReveal';
 
 const Products = () => {

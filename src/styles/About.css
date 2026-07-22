@@ -1,7 +1,7 @@
 .about-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 100px 0;
+  padding: 50px 0;
   color: #1a1a1a;
 }
 
@@ -21,19 +21,53 @@
   justify-content: center;
 }
 
+.about-image-stack {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+
+}
+
 .about-image-wrapper {
   width: 100%;
-  max-width: 580px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16 / 9;
 }
 
 .about-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.about-image-wrapper:hover .about-img {
+  transform: scale(1.03);
+}
+
+/* Responsive Header Display Toggle */
+.about-header-mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.about-header-mobile .about-subtitle {
+  justify-content: center;
+}
+
+.about-header-mobile .about-heading {
+  text-align: center;
+}
+
+.about-header-desktop {
+  display: block;
 }
 
 /* Right Content Column */
@@ -75,19 +109,27 @@
 .about-description {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px;
+  text-align: justify;
   line-height: 1.7;
   color: #555555;
   margin-bottom: 28px;
   max-width: 580px;
 }
 
-/* Feature Checkmarks */
-.about-features {
+/* Checkmark Features & Button Action Row */
+.about-action-row {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .feature-item {
@@ -104,6 +146,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .feature-text {
@@ -125,6 +168,8 @@
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 168, 132, 0.3);
   transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .view-more-btn:hover {
@@ -171,7 +216,7 @@
   }
 
   .about-container {
-    padding: 0 20px;
+    padding: 0px 20px;
   }
 
   .about-heading {

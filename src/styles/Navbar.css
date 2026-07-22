@@ -196,14 +196,18 @@
 
   .navbar-menu {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 0;
     width: 100%;
     background-color: #ffffff;
     flex-direction: column;
-    padding: 24px 0;
+    padding: 30px 20px;
+    margin-left: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
     transform: translateY(-150%);
     transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    border-bottom: 2px solid #2ed573;
   }
 
   .navbar-menu.open {
@@ -212,6 +216,20 @@
 
   .navbar-links {
     flex-direction: column;
+    align-items: center;
     gap: 20px;
+    width: 100%;
+  }
+
+  .navbar-menu .nav-link {
+    color: #0c0b20;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 6px 0;
+  }
+
+  .navbar-menu .nav-link:hover,
+  .navbar-menu .nav-link.active {
+    color: #2ed573;
   }
 }

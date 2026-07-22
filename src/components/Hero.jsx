@@ -17,33 +17,39 @@ const Hero = () => {
           <div className="hero-text-wrapper">
             <h3 className="welcome-script">Welcome to UKLInstruments</h3>
             <h1 className="hero-heading">
-              FRP Highly<br />
-              Engineered Pressure<br />
-              Vessels
+              A Market leader in <br />
+              FRP pressure vessels 
+              for water purification.
             </h1>
             <p className="hero-description">
               Advanced FRP pressure vessels engineered for exceptional strength,
               durability, and long-term performance in demanding applications.
             </p>
 
-            <button className="contact-us-btn">
-              <span className="arrow-circle">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </span>
-              <span className="btn-text">Contact Us</span>
-            </button>
+            <div className="hero-action-row">
+              <button className="contact-us-btn">
+                <span className="arrow-circle">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </span>
+                <span className="btn-text">Contact Us</span>
+              </button>
+
+              <div className="hero-mobile-vessels">
+                <img src={frpVessels} alt="FRP Pressure Vessels" className="mobile-vessels-img" />
+              </div>
+            </div>
           </div>
         </div>
 

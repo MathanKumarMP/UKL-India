@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CompanyOverview.css';
-import buildingFront from '../assets/building-front.png';
-import buildingSide from '../assets/aboutus.png';
+import buildingFront from '../assets/Buildind1.JPG';
+import buildingSide from '../assets/building2.png';
 import ScrollReveal from './ScrollReveal';
 
 const CompanyOverview = () => {
@@ -12,6 +12,24 @@ const CompanyOverview = () => {
       <div className="bg-blob blob-bottom-right"></div>
 
       <div className="overview-container">
+        {/* Subtitle & Heading for Mobile View (rendered above images) */}
+        <div className="overview-header-mobile">
+          <div className="overview-subtitle">
+            <span className="asterisk-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+              </svg>
+            </span>
+            <span className="subtitle-text">About Us</span>
+          </div>
+
+          <ScrollReveal
+            tag="h2"
+            className="overview-heading"
+            text={`Leading the Way in\nOEM Water Treatment\nSolutions`}
+          />
+        </div>
+
         {/* Left Side: Overlapping Photo Collage */}
         <div className="overview-images-column">
           <div className="img-top-right">
@@ -24,22 +42,23 @@ const CompanyOverview = () => {
 
         {/* Right Side: Content */}
         <div className="overview-content-column">
-          {/* Subtitle */}
-          <div className="overview-subtitle">
-            <span className="asterisk-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
-                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
-              </svg>
-            </span>
-            <span className="subtitle-text">About Us</span>
-          </div>
+          {/* Subtitle & Heading for Desktop View */}
+          <div className="overview-header-desktop">
+            <div className="overview-subtitle">
+              <span className="asterisk-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
+                  <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+                </svg>
+              </span>
+              <span className="subtitle-text">About Us</span>
+            </div>
 
-          {/* Heading with Word-by-Word Scroll Reveal */}
-          <ScrollReveal
-            tag="h2"
-            className="overview-heading"
-            text={`Leading the Way in\nOEM Water Treatment\nSolutions`}
-          />
+            <ScrollReveal
+              tag="h2"
+              className="overview-heading"
+              text={`Leading the Way in\nOEM Water Treatment\nSolutions`}
+            />
+          </div>
 
           {/* Description */}
           <p className="overview-description">
