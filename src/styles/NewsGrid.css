@@ -129,6 +129,16 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: sticky;
+  top: 130px;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.news-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-widget {

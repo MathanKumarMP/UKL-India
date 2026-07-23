@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CompanyOverview.css';
 import buildingFront from '../assets/Buildind1.JPG';
-import buildingSide from '../assets/building2.png';
+import buildingSide from '../assets/buildingnew2.png';
 import ScrollReveal from './ScrollReveal';
 
 const CompanyOverview = () => {

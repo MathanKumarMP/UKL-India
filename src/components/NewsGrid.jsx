@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/NewsGrid.css';
-import post2Img from '../assets/Explore4.png';
-import post3Img from '../assets/Explore1.png';
+import post2Img from '../assets/DSC_9645.JPG';
+import post3Img from '../assets/DSC_9640.JPG';
 
 const NewsGrid = () => {
   const [searchQuery, setSearchQuery] = useState('');

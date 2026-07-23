@@ -25,7 +25,7 @@
 
 .about-banner-container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1409px;
   margin: 0 auto;
   padding: 40px 0px 1px 41px;
   display: flex;
@@ -63,7 +63,8 @@
   background-color: #2b353b;
   padding: 10px 24px;
   border-radius: 30px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid #20bf6b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .breadcrumb-link {
@@ -71,12 +72,14 @@
   font-size: 15px;
   font-weight: 700;
   color: #ffffff;
+  text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .breadcrumb-link:hover {
-  opacity: 0.85;
+  color: #20bf6b;
+  opacity: 0.95;
 }
 
 .breadcrumb-star {
@@ -90,6 +93,14 @@
   font-size: 15px;
   font-weight: 700;
   color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.breadcrumb-current:hover {
+  color: #20bf6b;
+  opacity: 0.95;
 }
 
 /* Right Side Graphic: FRP Vessels (Flipped 180° Horizontally) */

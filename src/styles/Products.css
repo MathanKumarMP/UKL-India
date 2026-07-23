@@ -1,12 +1,13 @@
 .products-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 60px 0;
-  color: #1a1a1a;
+  padding: 70px 0 90px 0;
+  color: #111827;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .products-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
@@ -14,14 +15,14 @@
   align-items: center;
 }
 
-/* Header */
+/* Header Subtitle & Title */
 .products-header {
   text-align: center;
-  margin-bottom: 54px;
+  margin-bottom: 50px;
 }
 
 .products-subtitle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -29,23 +30,24 @@
 }
 
 .products-subtitle .subtitle-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: 28px;
-  font-weight: 700;
-  color: #2ed573;
-  font-style: italic;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #20bf6b;
+  letter-spacing: 0.2px;
 }
 
 .products-heading {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 48px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 44px;
   font-weight: 800;
-  line-height: 1.18;
-  color: #0c0b20;
+  color: #111827;
+  margin: 0;
+  line-height: 1.25;
   letter-spacing: -0.5px;
 }
 
-/* 4 Column Grid */
+/* 4 Column Grid matching Screenshot 2 */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -53,19 +55,29 @@
   width: 100%;
 }
 
+/* Individual Product Card */
 .product-card {
-  position: relative;
-  border-radius: 4px;
+  background-color: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  background-color: #f8fafc;
-  aspect-ratio: 1 / 1;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.card-image-wrapper {
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+  border-color: #20bf6b;
+}
+
+/* Upper Real Factory Photo Box */
+.card-image-box {
   width: 100%;
-  height: 100%;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -73,85 +85,41 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .product-card:hover .card-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-/* Slanted White Overlay Revealed on Hover (matching image 100%) */
-.card-hover-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
+/* Lower White Title Footer Box */
+.card-title-box {
   background-color: #ffffff;
-  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px 20px;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-card:hover .card-hover-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hover-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  color: #0c0b20;
-  margin-bottom: 16px;
-  letter-spacing: -0.3px;
-}
-
-/* Read More Pill Button (Blue Pill with Green Slanted Arrow Circle) */
-.read-more-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #0066c4;
-  padding: 4px 4px 4px 18px;
-  border-radius: 26px;
-  border: none;
-  cursor: pointer;
-  width: fit-content;
-  box-shadow: 0 4px 12px rgba(0, 102, 196, 0.3);
-  transition: all 0.3s ease;
-}
-
-.read-more-pill:hover {
-  background-color: #0052a3;
-  transform: translateY(-2px);
-}
-
-.pill-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.pill-arrow-circle {
-  width: 32px;
-  height: 32px;
-  background-color: #2ed573;
-  border-radius: 50%;
+  padding: 22px 16px;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  min-height: 70px;
+  border-top: 1px solid #f1f5f9;
 }
 
-/* Responsive adjustments */
+.product-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  line-height: 1.25;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-card-title {
+  color: #20bf6b;
+}
+
+/* Responsive Grid */
 @media (max-width: 1024px) {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -159,13 +127,13 @@
   }
 
   .products-heading {
-    font-size: 38px;
+    font-size: 34px;
   }
 }
 
 @media (max-width: 640px) {
   .products-section {
-    padding: 60px 0;
+    padding: 50px 0 60px 0;
   }
 
   .products-container {
@@ -177,7 +145,15 @@
     gap: 16px;
   }
 
+  .card-image-box {
+    height: 200px;
+  }
+
   .products-heading {
     font-size: 28px;
+  }
+
+  .product-card-title {
+    font-size: 18px;
   }
 }

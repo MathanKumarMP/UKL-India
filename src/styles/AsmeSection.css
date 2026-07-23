@@ -1,13 +1,14 @@
 .asme-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 30px 0 80px 0;
+  padding: 40px 0 80px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .asme-container {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0px;
   display: flex;
   min-height: 440px;
   border-radius: 12px;
@@ -15,79 +16,23 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
-/* Left Box: Muted Steel Gray-Blue with Dark ASME Logo */
+/* Left Box: ASME Image Asset */
 .asme-left-box {
-  flex: 0.95;
+  flex: 1;
   background-color: #3d465c;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
   position: relative;
   overflow: hidden;
 }
 
-.asme-logo-wrapper {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.asme-globe-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-.asme-brand-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.asme-title-swoosh {
-  position: relative;
-  display: inline-block;
-}
-
-.asme-main-text {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 82px;
-  font-weight: 900;
-  color: #12182e;
-  letter-spacing: -1px;
-  line-height: 0.9;
-  display: block;
-}
-
-.swoosh-path {
-  position: absolute;
-  bottom: -5px;
-  left: -5%;
-  width: 110%;
-  height: 35px;
-  pointer-events: none;
-}
-
-.asme-tagline {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  color: #12182e;
-  letter-spacing: 4px;
-  margin: 12px 0 0 0;
-  text-align: center;
-}
-
-.asme-bottom-line {
+.asme-left-img {
   width: 100%;
-  height: 3px;
-  background-color: #12182e;
-  margin-top: 6px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.15;
 }
 
 /* Right Box: Deep Navy Black with Translucent Top-Right Stacked Blocks */
@@ -102,7 +47,7 @@
   overflow: hidden;
 }
 
-/* Top Right Translucent Blue Stacked Blocks Overlay (Matching 2nd Image) */
+/* Top Right Translucent Blue Stacked Blocks Overlay */
 .stacked-blocks-accent {
   position: absolute;
   top: 0;
@@ -115,7 +60,7 @@
 
 .stacked-blocks-accent .block {
   position: absolute;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.45) 0%, rgba(59, 130, 246, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(0, 77, 173, 0.45) 0%, rgba(75, 173, 73, 0.25) 100%);
   border: 1px solid rgba(147, 197, 253, 0.15);
 }
 
@@ -131,7 +76,7 @@
   right: 20px;
   width: 90px;
   height: 90px;
-  background: rgba(30, 58, 138, 0.6);
+  background: rgba(0, 77, 173, 0.6);
 }
 
 .stacked-blocks-accent .block-3 {
@@ -139,7 +84,7 @@
   right: 120px;
   width: 60px;
   height: 60px;
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(75, 173, 73, 0.35);
 }
 
 /* Hexagonal Honeycomb Background */
@@ -160,19 +105,19 @@
   max-width: 540px;
 }
 
-/* Watermark Outline Title (Matching 2nd Image) */
+/* Title Header */
 .asme-watermark-title {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 46px;
+  font-size: 42px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 0 0 28px 0;
+  color: #ffffff;
+  margin: 0 0 24px 0;
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.1;
 }
 
-/* Content Block with Vertical Cyan Line */
+/* Content Block with Vertical Accent Line matching linear-gradient(135deg, #004dad, #4BAD49) */
 .asme-text-block {
   display: flex;
   align-items: stretch;
@@ -181,8 +126,8 @@
 }
 
 .left-accent-bar {
-  width: 2.5px;
-  background-color: #00d2d3;
+  width: 4px;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
   flex-shrink: 0;
   border-radius: 2px;
 }
@@ -195,7 +140,7 @@
   margin: 0;
 }
 
-/* Split Pill Button (Matching 2nd Image) */
+/* Split Pill Button */
 .asme-btn-wrapper {
   display: flex;
 }
@@ -215,17 +160,16 @@
 
 .split-pill-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 77, 173, 0.4);
 }
 
 .btn-green-side {
-  background-color: #20bf6b;
+  background-color: #4BAD49;
   padding: 0 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 52px;
-
 }
 
 .arrow-circle {
@@ -239,11 +183,11 @@
 }
 
 .btn-blue-side {
-  background-color: #0c5796;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
   color: #ffffff;
   font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0 28px 0 22px;
   display: flex;
   align-items: center;
@@ -258,11 +202,7 @@
   }
 
   .asme-left-box {
-    padding: 50px 30px;
-  }
-
-  .asme-main-text {
-    font-size: 64px;
+    height: 260px;
   }
 
   .asme-right-box {
@@ -270,7 +210,7 @@
   }
 
   .asme-watermark-title {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 
@@ -283,11 +223,11 @@
     padding: 0 20px;
   }
 
-  .asme-main-text {
-    font-size: 48px;
+  .asme-left-box {
+    height: 200px;
   }
 
   .asme-watermark-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 }

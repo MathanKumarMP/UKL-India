@@ -1,23 +1,28 @@
 import React from 'react';
 import '../styles/Products.css';
-import prod1 from '../assets/Explore1.png';
-import prod2 from '../assets/Explore2.png';
-import prod3 from '../assets/Explore3.png';
-import prod4 from '../assets/Explore4.png';
+import prod1 from '../assets/8 Housing.png';
+import prod2 from '../assets/8 Housing Side.png';
+import prod3 from '../assets/4 Housing End.png';
+import prod4 from '../assets/4 Housing Side Port.png';
 import ScrollReveal from './ScrollReveal';
 
 const Products = () => {
-  const productImages = [
-    { id: 1, title: '8 Housing End Port', src: prod1, alt: '8 Housing End Port' },
-    { id: 2, title: '8 Housing Side Port', src: prod2, alt: '8 Housing Side Port' },
-    { id: 3, title: '4 Housing End Port', src: prod3, alt: '4 Housing End Port' },
-    { id: 4, title: '4 Housing Side Port', src: prod4, alt: '4 Housing Side Port' },
+  const productItems = [
+    { id: 1, title: '8 Housing End Port', src: prod1, hash: '#8-housing-end-port' },
+    { id: 2, title: '8 Housing Side Port', src: prod2, hash: '#8-housing-side-port' },
+    { id: 3, title: '4 Housing End Port', src: prod3, hash: '#4-housing-end-port' },
+    { id: 4, title: '4 Housing Side Port', src: prod4, hash: '#4-housing-side-port' },
   ];
+
+  const handleCardClick = (hash) => {
+    window.location.hash = hash;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <section className="products-section" id="product">
       <div className="products-container">
-        {/* Header Title */}
+        {/* Header Subtitle & Title */}
         <div className="products-header">
           <div className="products-subtitle">
             <span className="asterisk-icon">
@@ -31,31 +36,26 @@ const Products = () => {
           <ScrollReveal
             tag="h2"
             className="products-heading"
-            text={`Explore Our Premium\nProduct Range`}
+            text={`Explore Our Premium Product Range`}
           />
         </div>
 
-        {/* 4 Card Gallery Grid with Hover Slide Overlay */}
+        {/* 4 Cards Row Grid */}
         <div className="products-grid">
-          {productImages.map((item) => (
-            <div key={item.id} className="product-card">
-              <div className="card-image-wrapper">
-                <img src={item.src} alt={item.alt} className="card-img" />
+          {productItems.map((item) => (
+            <div
+              key={item.id}
+              className="product-card"
+              onClick={() => handleCardClick(item.hash)}
+            >
+              {/* Upper Image Box */}
+              <div className="card-image-box">
+                <img src={item.src} alt={item.title} className="card-img" />
               </div>
 
-              {/* Slanted White Overlay Revealed on Hover */}
-              <div className="card-hover-overlay">
-                <h3 className="hover-title">{item.title}</h3>
-
-                <button className="read-more-pill">
-                  <span className="pill-text">Read More</span>
-                  <span className="pill-arrow-circle">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3">
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
-                  </span>
-                </button>
+              {/* Bottom Title Footer Box */}
+              <div className="card-title-box">
+                <h3 className="product-card-title">{item.title}</h3>
               </div>
             </div>
           ))}

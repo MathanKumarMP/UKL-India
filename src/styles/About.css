@@ -1,17 +1,18 @@
 .about-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 50px 0;
-  color: #1a1a1a;
+  padding: 70px 0 90px 0;
+  color: #111827;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .about-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 65px;
 }
 
 /* Left Image Column */
@@ -21,53 +22,24 @@
   justify-content: center;
 }
 
-.about-image-stack {
+.about-img-box {
   width: 100%;
-  max-width: 560px;
+  max-width: 580px;
+  background-color: #f8fafc;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-
-}
-
-.about-image-wrapper {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  aspect-ratio: 16 / 9;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .about-img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 440px;
   display: block;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.about-image-wrapper:hover .about-img {
-  transform: scale(1.03);
-}
-
-/* Responsive Header Display Toggle */
-.about-header-mobile {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-.about-header-mobile .about-subtitle {
-  justify-content: center;
-}
-
-.about-header-mobile .about-heading {
-  text-align: center;
-}
-
-.about-header-desktop {
-  display: block;
+  object-fit: contain;
 }
 
 /* Right Content Column */
@@ -78,58 +50,49 @@
   align-items: flex-start;
 }
 
-/* Cursive Subtitle Header */
+/* Subtitle Badge Header */
 .about-subtitle {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .subtitle-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: 26px;
-  font-weight: 700;
-  color: #2ed573;
-  font-style: italic;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #4BAD49;
+  letter-spacing: 0.2px;
 }
 
 /* Section Title */
 .about-heading {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 44px;
-  font-weight: 800;
-  line-height: 1.18;
-  color: #0d0c22;
-  margin-bottom: 24px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.22;
+  color: #111827;
+  margin-bottom: 22px;
   letter-spacing: -0.5px;
 }
 
 /* Description Text */
 .about-description {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
-  text-align: justify;
-  line-height: 1.7;
-  color: #555555;
-  margin-bottom: 28px;
-  max-width: 580px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.76;
+  color: #4b5563;
+  margin-bottom: 30px;
 }
 
-/* Checkmark Features & Button Action Row */
-.about-action-row {
+/* Single Horizontal Row Checkmark Features */
+.about-features-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 20px;
-  margin-top: 12px;
-}
-
-.about-features {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 28px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .feature-item {
@@ -139,52 +102,49 @@
 }
 
 .check-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1.5px solid #ff6b1a;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #4BAD49;
   flex-shrink: 0;
 }
 
 .feature-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  color: #0d0c22;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1e293b;
 }
 
-/* View More Button (Blue to Teal Gradient Pill with Circle Arrow on Right) */
+/* View More Button (Gradient Pill with Circle Arrow on Left) */
 .view-more-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(90deg, #0b50a2 0%, #009688 50%, #00a884 100%);
-  padding: 6px 6px 6px 24px;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
+  padding: 6px 28px 6px 6px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 168, 132, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 77, 173, 0.25);
   transition: all 0.3s ease;
-  white-space: nowrap;
-  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .view-more-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 168, 132, 0.45);
+  box-shadow: 0 10px 25px rgba(0, 77, 173, 0.38);
 }
 
 .view-more-circle {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background-color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .view-more-text {
@@ -202,29 +162,26 @@
   }
 
   .about-heading {
-    font-size: 36px;
-  }
-
-  .about-features {
-    gap: 16px;
+    font-size: 34px;
   }
 }
 
 @media (max-width: 640px) {
   .about-section {
-    padding: 60px 0;
+    padding: 50px 0 60px 0;
   }
 
   .about-container {
-    padding: 0px 20px;
+    padding: 0 20px;
   }
 
   .about-heading {
     font-size: 28px;
   }
 
-  .about-features {
+  .about-features-row {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
 }

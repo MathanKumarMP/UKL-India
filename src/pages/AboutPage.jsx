@@ -3,7 +3,6 @@ import AboutBanner from '../components/AboutBanner';
 import AboutUKL from '../components/AboutUKL';
 import MissionVisionValues from '../components/MissionVisionValues';
 import OrganizationStructure from '../components/OrganizationStructure';
-import CompanyOverview from '../components/CompanyOverview';
 import '../styles/AboutPage.css';
 
 const AboutPage = () => {
@@ -13,7 +12,6 @@ const AboutPage = () => {
       <AboutUKL />
       <MissionVisionValues />
       <OrganizationStructure />
-      <CompanyOverview />
     </div>
   );
 };

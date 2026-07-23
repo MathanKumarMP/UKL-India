@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/AboutUKL.css';
-import factoryImg from '../assets/Explore4.png';
-import capImg from '../assets/cap-closeup.png';
+import singleCollageImg from '../assets/image copy.png';
 import shapeImg from '../assets/h1-shape-1.png';
 
 const AboutUKL = () => {
@@ -13,20 +12,14 @@ const AboutUKL = () => {
       </div>
 
       <div className="about-ukl-container">
-        {/* Left Side: Gray Container with Overlapping Image Stack */}
+        {/* Left Side: Single Image Container matching 2nd image */}
         <div className="about-ukl-image-column">
-          <div className="gray-card-box">
-            <div className="image-stack-wrapper">
-              {/* Overlapping Top-Left Close-up Image (Black End Cap with Yellow UKL Label) */}
-              <div className="img-top-left">
-                <img src={capImg} alt="UKL Membrane Housing Black End Cap Close-up" />
-              </div>
-
-              {/* Base Bottom-Right Factory Image */}
-              <div className="img-bottom-right">
-                <img src={factoryImg} alt="UKL Manufacturing Facility Membrane Housings" />
-              </div>
-            </div>
+          <div className="single-image-wrapper">
+            <img
+              src={singleCollageImg}
+              alt="UKL Membrane Housing End Cap and Assembly"
+              className="single-about-img"
+            />
           </div>
         </div>
 

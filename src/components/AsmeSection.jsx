@@ -1,41 +1,19 @@
 import React from 'react';
 import '../styles/AsmeSection.css';
+import asmeImg from '../assets/ASME.jpg';
 
 const AsmeSection = () => {
   return (
     <section className="asme-section">
       <div className="asme-container">
-        {/* Left Side: Dark Slate Steel Blue Box with Large ASME Logo */}
+        {/* Left Side: ASME Image Asset matching user screenshot */}
         <div className="asme-left-box">
-          <div className="asme-logo-wrapper">
-            {/* Globe Wireframe Background */}
-            <div className="asme-globe-icon">
-              <svg width="180" height="180" viewBox="0 0 100 100" fill="none" opacity="0.25">
-                <circle cx="50" cy="50" r="45" stroke="#12182e" strokeWidth="1.8" />
-                <ellipse cx="50" cy="50" rx="45" ry="20" stroke="#12182e" strokeWidth="1.8" />
-                <ellipse cx="50" cy="50" rx="20" ry="45" stroke="#12182e" strokeWidth="1.8" />
-                <line x1="5" y1="50" x2="95" y2="50" stroke="#12182e" strokeWidth="1.8" />
-              </svg>
-            </div>
-
-            {/* ASME Swoosh Brand Mark */}
-            <div className="asme-brand-content">
-              <div className="asme-title-swoosh">
-                <span className="asme-main-text">ASME</span>
-                <svg className="swoosh-path" viewBox="0 0 200 40" fill="none">
-                  <path d="M5 25 Q 100 -10, 195 20 Q 100 10, 5 25 Z" fill="#12182e" opacity="0.3" />
-                  <path d="M10 28 Q 100 0, 190 28" stroke="#12182e" strokeWidth="3.5" strokeLinecap="round" />
-                </svg>
-              </div>
-              <p className="asme-tagline">SETTING THE STANDARD</p>
-              <div className="asme-bottom-line"></div>
-            </div>
-          </div>
+          <img src={asmeImg} alt="ASME Setting The Standard Logo" className="asme-left-img" />
         </div>
 
         {/* Right Side: Deep Navy Constellation & Block Graphics Box */}
         <div className="asme-right-box">
-          {/* Top Right Translucent Stacked Blocks */}
+          {/* Top Right Translucent Stacked Blocks Overlay */}
           <div className="stacked-blocks-accent">
             <div className="block block-1"></div>
             <div className="block block-2"></div>
@@ -72,10 +50,10 @@ const AsmeSection = () => {
           </div>
 
           <div className="asme-right-content">
-            {/* Outline / Condensed Title */}
-            <h2 className="asme-watermark-title">ASME CERTIFIED</h2>
+            {/* Title Header */}
+            <h2 className="asme-watermark-title">ASME CERTIFICATION</h2>
 
-            {/* Content Text with Left Teal Accent Line */}
+            {/* Content Text with Left Blue Accent Line */}
             <div className="asme-text-block">
               <div className="left-accent-bar"></div>
               <p className="asme-description-text">
@@ -86,9 +64,13 @@ const AsmeSection = () => {
               </p>
             </div>
 
-            {/* Split Pill Button (Green Arrow Circle + Blue Pill Body) */}
+            {/* Split Pill Button linking to ASME Certificate PDF */}
             <div className="asme-btn-wrapper">
-              <button className="split-pill-btn">
+              <a
+                href="/Memrane-Housing.pdf"
+                className="split-pill-btn"
+                style={{ textDecoration: 'none' }}
+              >
                 <span className="btn-green-side">
                   <span className="arrow-circle">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5">
@@ -100,7 +82,7 @@ const AsmeSection = () => {
                 <span className="btn-blue-side">
                   Download Brochure
                 </span>
-              </button>
+              </a>
             </div>
 
           </div>

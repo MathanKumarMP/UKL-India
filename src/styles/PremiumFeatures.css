@@ -4,6 +4,7 @@
   padding: 80px 0 100px 0;
   position: relative;
   overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* City Skyline & Green Polygon Backdrop on Right Edge */
@@ -16,7 +17,7 @@
   background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80');
   background-size: cover;
   background-position: center;
-  opacity: 0.1;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 1;
 }
@@ -27,7 +28,7 @@
   right: 0;
   width: 480px;
   height: 100%;
-  background: linear-gradient(135deg, rgba(32, 191, 107, 0.25) 0%, rgba(32, 191, 107, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(32, 191, 107, 0.25) 0%, rgba(32, 191, 107, 0.85) 100%);
   clip-path: polygon(38% 0, 100% 0, 100% 100%, 0% 100%);
   pointer-events: none;
   z-index: 2;
@@ -44,60 +45,146 @@
 .premium-title {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 44px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
   text-align: center;
   margin: 0 0 60px 0;
   letter-spacing: -0.5px;
 }
 
+/* 2 Column Grid for 6 Feature Cards */
 .premium-features-grid {
-  max-width: 1180px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 60px;
+  row-gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.premium-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 80px;
-  padding: 20px 0;
+/* Individual Feature Card */
+.premium-item-card {
+  position: relative;
+  padding: 24px 28px;
+  border-radius: 12px;
+  background-color: transparent;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
 }
 
-.row-divider {
+/* Background vessel image revealed ONLY on hover (Dark overlay) */
+.hover-vessel-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 1px;
-  background-color: #4a4a4a;
-  margin: 12px 0;
-  opacity: 0.8;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  z-index: 1;
 }
 
-.premium-item {
+.hover-vessel-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(17, 24, 39, 0.88) 100%);
+}
+
+.premium-item-card:hover .hover-vessel-bg {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover Card Shadow & Transform */
+.premium-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Inner Content */
+.card-inner-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 22px;
 }
 
 .item-number {
   font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   color: #111827;
-  min-width: 28px;
+  min-width: 32px;
   padding-top: 2px;
+  transition: color 0.35s ease;
+}
+
+.premium-item-card:hover .item-number {
+  color: #ffffff;
 }
 
 .item-text {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 15px;
   line-height: 1.68;
-  color: #111827;
+  color: #1e293b;
   font-weight: 600;
   margin: 0;
+  transition: color 0.35s ease;
+}
+
+/* Green & Blue text color transitions on hover (Matching User Screenshot) */
+.text-green {
+  color: #1e293b;
+  transition: color 0.35s ease;
+}
+
+.text-blue {
+  color: #1e293b;
+  transition: color 0.35s ease;
+}
+
+.premium-item-card:hover .text-green {
+  color: #20bf6b; /* Vibrant green on hover */
+  font-weight: 700;
+}
+
+.premium-item-card:hover .text-blue {
+  color: #2563eb; /* Vibrant blue on hover */
+  font-weight: 700;
+}
+
+/* Bottom Accent Bar */
+.bottom-accent-bar {
+  position: absolute;
+  bottom: 0;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background-color: #475569;
+  z-index: 2;
+  transition: background-color 0.35s ease, height 0.35s ease, left 0.35s ease, right 0.35s ease;
+}
+
+.premium-item-card:hover .bottom-accent-bar {
+  background-color: #2563eb;
+  height: 3px;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 1024px) {
-  .premium-row {
-    column-gap: 40px;
+  .premium-features-grid {
+    column-gap: 30px;
   }
 
   .premium-title {
@@ -115,14 +202,9 @@
     padding: 0 20px;
   }
 
-  .premium-row {
+  .premium-features-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px 0;
-  }
-
-  .row-divider {
-    display: none;
+    gap: 16px;
   }
 
   .premium-title {

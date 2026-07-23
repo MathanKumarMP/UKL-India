@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/ProductFeatureSpec.css';
-import item1 from '../assets/grid-item-3.png';
-import item2 from '../assets/grid-item-2.png';
-import item3 from '../assets/grid-item-4.png';
-import item4 from '../assets/grid-item-1.png';
+import img1 from '../assets/grid-item-2.png';
+import img2 from '../assets/grid-item-1.png';
+import img3 from '../assets/grid-item-3.png';
+import img4 from '../assets/grid-item-4.png';
 
 const ProductFeatureSpec = () => {
   return (
@@ -20,43 +20,41 @@ const ProductFeatureSpec = () => {
             <span className="subtitle-text">FRP Pressure Vessels</span>
           </div>
 
-          <h2 className="spec-heading">4" & 8" Side Port and End Port</h2>
+          <h2 className="spec-heading">
+            4" & 8" Side Port and End Port Membrane Housing For RO Application
+          </h2>
         </div>
 
-        {/* 2-Column Content: Left 2x2 Grid + Right Text Description */}
-        <div className="spec-body-grid">
-          {/* Left Side: 2x2 Photo Cards */}
-          <div className="spec-photo-grid">
+        {/* 2-Row Stack matching User Screenshot 2 */}
+        <div className="spec-rows-container">
+          {/* Row 1 */}
+          <div className="spec-row">
             <div className="spec-card">
-              <img src={item1} alt="4 inch Side Port Vessel End View" />
+              <img src={img1} alt="UKL Membrane Housing End View White Port Cap" />
             </div>
             <div className="spec-card">
-              <img src={item2} alt="COMRO 300 PSI End Cap" />
+              <img src={img2} alt="UKL Membrane Housing Black Cap with Stainless Steel Pipe" />
             </div>
-            <div className="spec-card">
-              <img src={item3} alt="8 inch Side Port Vessel Assembly" />
-            </div>
-            <div className="spec-card">
-              <img src={item4} alt="1200 PSI End Cap with Hose Barb" />
+            <div className="spec-text-box">
+              <p className="spec-paragraph">
+                UKL membrane housings are available with end entry design and also side entry design. This is used for Residential, commercial, municipal and industrial RO applications. Membrane housings are available in operating pressure of 300psi, 450psi, 600psi, 1000psi and 1200psi. They are manufactured using the fiber glass-epoxy composite to meet the stringent demands of the RO processes.
+              </p>
             </div>
           </div>
 
-          {/* Right Side: Paragraph Descriptions */}
-          <div className="spec-text-column">
-            <p className="spec-paragraph">
-              UKL membrane housings are available with end entry design and also side entry design. 
-              This is used for Residential, commercial, municipal and Industrial RO applications. 
-              Membrane housings are available in operating pressure of 300psi, 450psi, 600psi, 
-              1000psi and 1200psi. They are manufactured using the fiber glass-epoxy composite to 
-              meet the stringent demands of the RO processes.
-            </p>
-
-            <p className="spec-paragraph">
-              Membrane housings are available with multi-porting options up to 4" ports for side entry. 
-              This allows multiple membrane housings to be connected together without separate manifolds. 
-              Smooth inner mirror finish for easy loading & unloading of membrane elements. Membrane 
-              housing are available from 1 element to 8 elements in length for RO applications.
-            </p>
+          {/* Row 2 */}
+          <div className="spec-row">
+            <div className="spec-card">
+              <img src={img3} alt="UKL Membrane Housing End View White Port Cap" />
+            </div>
+            <div className="spec-card">
+              <img src={img4} alt="UKL Membrane Housing Black Cap Component" />
+            </div>
+            <div className="spec-text-box">
+              <p className="spec-paragraph">
+                UKL membrane pressure vessels are manufactured by computer controlled filament winding machine and associated high precision processing equipment. With a team of highly skilled technical experts in the field of Composites technology and with all the state-of-the-art processing machines in-house, UKL offers a complete range of high quality membrane housings in sizes of 4" and 8" diameters.
+              </p>
+            </div>
           </div>
         </div>
       </div>

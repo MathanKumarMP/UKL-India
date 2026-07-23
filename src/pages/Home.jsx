@@ -5,6 +5,7 @@ import CompanyOverview from '../components/CompanyOverview';
 import Products from '../components/Products';
 import Testimonials from '../components/Testimonials';
 import Blog from '../components/Blog';
+import Clients from '../components/Clients';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Products />
       <Testimonials />
       <Blog />
+      <Clients />
     </div>
   );
 };

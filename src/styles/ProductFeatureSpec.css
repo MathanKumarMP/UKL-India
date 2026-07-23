@@ -1,7 +1,8 @@
 .product-spec-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 80px 0 90px 0;
+  padding: 70px 0 90px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .product-spec-container {
@@ -10,9 +11,13 @@
   padding: 0 40px;
 }
 
-/* Header Subtitle & Title */
+/* Header Subtitle & Title Centered */
 .product-spec-header {
-  margin-bottom: 45px;
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .spec-subtitle {
@@ -33,43 +38,44 @@
 .spec-heading {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 42px;
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.5px;
 }
 
-/* 2-Column Layout */
-.spec-body-grid {
+/* 2-Row Stack Container */
+.spec-rows-container {
   display: flex;
-  align-items: center;
-  gap: 65px;
+  flex-direction: column;
+  gap: 32px;
 }
 
-/* Left 2x2 Photo Grid */
-.spec-photo-grid {
-  flex: 1;
+/* Each Row: 2 Image Cards + 1 Text Column */
+.spec-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 580px;
+  grid-template-columns: 280px 280px 1fr;
+  gap: 28px;
+  align-items: center;
 }
 
 .spec-card {
-  background-color: #f4f6f8;
-  border-radius: 16px;
+  background-color: #f8fafc;
+  border-radius: 20px;
   padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
+  height: 220px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .spec-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
 
 .spec-card img {
@@ -79,11 +85,9 @@
   display: block;
 }
 
-/* Right Text Column */
-.spec-text-column {
-  flex: 1.1;
-  display: flex;
-  flex-direction: column;
+/* Text Column Box */
+.spec-text-box {
+  padding-left: 10px;
 }
 
 .spec-paragraph {
@@ -91,24 +95,21 @@
   font-size: 15.5px;
   line-height: 1.76;
   color: #4b5563;
-  margin: 0 0 24px 0;
-  text-align: justify;
-}
-
-.spec-paragraph:last-child {
-  margin-bottom: 0;
+  margin: 0;
+  text-align: left;
 }
 
 /* Responsive Grid */
-@media (max-width: 1024px) {
-  .spec-body-grid {
-    flex-direction: column;
-    gap: 40px;
+@media (max-width: 1100px) {
+  .spec-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
-  .spec-photo-grid {
-    max-width: 100%;
-    width: 100%;
+  .spec-text-box {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    margin-top: 10px;
   }
 
   .spec-heading {
@@ -125,9 +126,13 @@
     padding: 0 20px;
   }
 
-  .spec-photo-grid {
+  .spec-row {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .spec-card {
+    height: 180px;
   }
 
   .spec-heading {
