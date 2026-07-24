@@ -27,15 +27,7 @@ const QualityCertifications = () => {
       logoImg: tuvLogo,
       alt: 'TÜV NORD ISO 9001 Certification Logo'
     },
-    {
-      id: 'nbbi',
-      title: 'NBBI',
-      description:
-        "Accreditation involves thorough evaluation of an organization’s quality system manual and requires a demonstration of its ability to implement the system. The stamp signifies strict repair and/or alteration requirements have been met and verified by an NBBI Commissioned Inspector.",
-      hasBtn: false,
-      logoImg: nbbiLogo,
-      alt: 'NBBI Certification Stamp Logo'
-    },
+    
     {
       id: 'nsf',
       title: 'NSF International',
@@ -56,7 +48,16 @@ const QualityCertifications = () => {
       pdfUrl: '/Certificate-C0838879.pdf',
       logoImg: nsfLogo,
       alt: 'NSF International Certification Logo'
-    }
+    },
+    {
+      id: 'nbbi',
+      title: 'NBBI',
+      description:
+        "Accreditation involves thorough evaluation of an organization’s quality system manual and requires a demonstration of its ability to implement the system. The stamp signifies strict repair and/or alteration requirements have been met and verified by an NBBI Commissioned Inspector.",
+      hasBtn: false,
+      logoImg: nbbiLogo,
+      alt: 'NBBI Certification Stamp Logo'
+    },
   ];
 
   return (
@@ -93,15 +94,17 @@ const QualityCertifications = () => {
                   <a
                     href={item.pdfUrl || '#'}
                     className="cert-download-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
                   >
-                    <span className="btn-text">View Certificate</span>
-                    <span className="btn-green-circle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5">
+                    <span className="cert-btn-circle">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
                         <path d="M5 12h14" />
                         <path d="m12 5 7 7-7 7" />
                       </svg>
                     </span>
+                    <span className="btn-text">View Certificate</span>
                   </a>
                 )}
               </div>

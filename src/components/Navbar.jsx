@@ -170,7 +170,15 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
                 </button>
               ) : (
                 <div className="navbar-top-right-group">
-                  <button className="enquire-btn">Enquire Now</button>
+                  <a href="#contact" className="enquire-btn" style={{ textDecoration: 'none' }}>
+                    <span className="enquire-circle">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </span>
+                    <span className="enquire-text">Enquire Now</span>
+                  </a>
                   <button
                     className="grid-icon-btn top-grid-btn"
                     onClick={() => setSidebarOpen(true)}

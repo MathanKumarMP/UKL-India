@@ -50,7 +50,7 @@
 
 /* 2. Hovered Dark State (Matching User Screenshot) */
 .mv-card.hovered-dark {
-  background-color: #000000;
+  background: linear-gradient(135deg, #004ead, #4bad49);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
   transform: translateY(-6px);
   border-color: #000000;
@@ -75,6 +75,15 @@
 
 .mv-card:hover .card-icon-wrapper {
   transform: scale(1.06);
+}
+
+.mv-card.hovered-dark .card-icon-wrapper svg path,
+.mv-card.hovered-dark .card-icon-wrapper svg circle {
+  stroke: #ffffff;
+}
+
+.mv-card.hovered-dark .card-icon-wrapper svg circle[fill] {
+  fill: #ffffff;
 }
 
 /* Card Title */

@@ -69,15 +69,15 @@ const CompanyOverview = () => {
           </p>
 
           {/* Read More Pill Button */}
-          <button className="read-more-btn">
-            <span className="read-more-text">Read More</span>
+          <a href="#about" className="read-more-btn" style={{ textDecoration: 'none' }}>
             <span className="read-more-circle">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10ac84" strokeWidth="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
             </span>
-          </button>
+            <span className="read-more-text">Read More</span>
+          </a>
         </div>
       </div>
     </section>

@@ -27,14 +27,20 @@ const Hero = () => {
             </p>
 
             <div className="hero-action-row">
-              <button className="contact-us-btn">
-                <span className="arrow-circle">
+              <button
+                className="contact-us-btn"
+                onClick={() => {
+                  const contactEl = document.getElementById('contact');
+                  if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <span className="contact-btn-circle">
                   <svg
-                    width="16"
-                    height="16"
+                    width="14"
+                    height="14"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#004dad"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"

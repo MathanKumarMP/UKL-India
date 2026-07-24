@@ -64,24 +64,22 @@ const AsmeSection = () => {
               </p>
             </div>
 
-            {/* Split Pill Button linking to ASME Certificate PDF */}
+            {/* Download Brochure Button matching Image 2 */}
             <div className="asme-btn-wrapper">
               <a
                 href="/Memrane-Housing.pdf"
-                className="split-pill-btn"
+                className="asme-download-btn"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ textDecoration: 'none' }}
               >
-                <span className="btn-green-side">
-                  <span className="arrow-circle">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </span>
+                <span className="asme-btn-circle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
                 </span>
-                <span className="btn-blue-side">
-                  Download Brochure
-                </span>
+                <span className="btn-text">Download Brochure</span>
               </a>
             </div>
 

@@ -24,6 +24,27 @@ ul {
 }
 
 /* ==========================================
+   CUSTOM GRADIENT SCROLLBAR (#004dad to #4BAD49)
+   ========================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #004dad 0%, #4BAD49 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #003b87 0%, #3d983b 100%);
+}
+
+/* ==========================================
    SMOOTH TITLE & HEADING ENTRANCE ANIMATIONS
    ========================================== */
 

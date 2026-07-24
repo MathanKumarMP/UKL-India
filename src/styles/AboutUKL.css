@@ -7,21 +7,6 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Decorative Purple-Pink Ribbon Image in Top Right */
-.purple-swirl-wrapper {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.purple-swirl-img {
-  width: 40px;
-  height: auto;
-  display: block;
-}
-
 .about-ukl-container {
   max-width: 1320px;
   margin: 0 auto;

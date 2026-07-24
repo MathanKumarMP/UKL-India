@@ -30,7 +30,7 @@
 
 .card-badge {
   display: inline-block;
-  background-color: #0c8a70;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
   color: #ffffff;
   font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
   font-size: 13px;

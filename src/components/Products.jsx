@@ -53,6 +53,21 @@ const Products = () => {
                 <img src={item.src} alt={item.title} className="card-img" />
               </div>
 
+              {/* Slanted White Overlay Revealed on Hover */}
+              <div className="card-hover-overlay">
+                <h3 className="hover-title">{item.title}</h3>
+
+                <button className="read-more-pill">
+                  <span className="pill-arrow-circle">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                  <span className="pill-text">Read More</span>
+                </button>
+              </div>
+
               {/* Bottom Title Footer Box */}
               <div className="card-title-box">
                 <h3 className="product-card-title">{item.title}</h3>

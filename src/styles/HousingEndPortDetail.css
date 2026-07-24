@@ -102,7 +102,7 @@
 }
 
 .feature-card.green-border {
-  border-left: 4px solid #4BAD49;
+  border-left: 4px solid #004dad;
 }
 
 .feature-card:hover {
@@ -135,9 +135,23 @@
   max-width: 1050px;
   margin: 0 auto;
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   border: 1px solid #e2e8f0;
+}
+
+.specs-table-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.specs-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.specs-table-wrapper::-webkit-scrollbar-thumb {
+  background: #004dad;
+  border-radius: 10px;
 }
 
 .specs-table {
@@ -154,6 +168,7 @@
   padding: 18px 20px;
   border: none;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .specs-table td {
@@ -162,6 +177,7 @@
   color: #475569;
   font-weight: 500;
   border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap;
 }
 
 .specs-table tbody tr:nth-child(even) {
@@ -201,6 +217,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 0 20px;
+  }
+
+  .detail-specs-section {
+    padding: 40px 0 50px 0;
+  }
+
+  .specs-table {
+    min-width: 580px;
+  }
+}
+
 @media (max-width: 640px) {
   .detail-section-heading {
     font-size: 26px;
@@ -208,7 +238,8 @@
 
   .specs-table th,
   .specs-table td {
-    padding: 12px 10px;
+    padding: 12px 14px;
     font-size: 13px;
   }
 }
+

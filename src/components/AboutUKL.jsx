@@ -1,16 +1,10 @@
 import React from 'react';
 import '../styles/AboutUKL.css';
 import singleCollageImg from '../assets/image copy.png';
-import shapeImg from '../assets/h1-shape-1.png';
 
 const AboutUKL = () => {
   return (
     <section className="about-ukl-section">
-      {/* Decorative Ribbon Image in Top Right */}
-      <div className="purple-swirl-wrapper">
-        <img src={shapeImg} alt="Decorative Ribbon Graphic" className="purple-swirl-img" />
-      </div>
-
       <div className="about-ukl-container">
         {/* Left Side: Single Image Container matching 2nd image */}
         <div className="about-ukl-image-column">

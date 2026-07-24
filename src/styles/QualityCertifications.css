@@ -1,7 +1,7 @@
 .quality-certs-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 70px 0 100px 0;
+  padding: 27px 0 100px 0;
 }
 
 .quality-certs-container {
@@ -119,40 +119,47 @@
   margin: 0 0 26px 0;
 }
 
-/* Download / View Certificate Button */
+/* Download / View Certificate Button matching Image 2 */
 .cert-download-btn {
   display: inline-flex;
   align-items: center;
-  background-color: #0f4c81;
-  border: none;
+  gap: 12px;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
+  padding: 6px 28px 6px 6px;
   border-radius: 30px;
-  padding: 4px 5px 4px 22px;
+  border: none;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  box-shadow: 0 4px 15px rgba(15, 76, 129, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 77, 173, 0.25);
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cert-download-btn:hover {
   transform: translateY(-2px);
-  background-color: #135ba0;
+  box-shadow: 0 10px 25px rgba(0, 77, 173, 0.38);
 }
 
-.cert-download-btn .btn-text {
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.btn-green-circle {
-  width: 36px;
-  height: 36px;
+.cert-btn-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
   border-radius: 50%;
-  background-color: #20bf6b;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.cert-download-btn:hover .cert-btn-circle {
+  transform: translateX(2px);
+}
+
+.cert-download-btn .btn-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 /* Responsive Layout */
