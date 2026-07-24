@@ -18,7 +18,7 @@ const Hero = () => {
             <h3 className="welcome-script">Welcome to UKLInstruments</h3>
             <h1 className="hero-heading">
               A Market leader in <br />
-              FRP pressure vessels 
+              FRP pressure vessels
               for water purification.
             </h1>
             <p className="hero-description">
@@ -29,10 +29,7 @@ const Hero = () => {
             <div className="hero-action-row">
               <button
                 className="contact-us-btn"
-                onClick={() => {
-                  const contactEl = document.getElementById('contact');
-                  if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => window.location.hash = '#contact'}
               >
                 <span className="contact-btn-circle">
                   <svg
