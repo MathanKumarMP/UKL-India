@@ -345,14 +345,16 @@
   background-color: #ffffff;
   z-index: 2000;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.18);
-  padding: 40px 32px 35px 32px;
+  padding: 36px 32px 32px 32px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 20px;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-y: auto;
 }
 
 .drawer-panel.open {
@@ -381,11 +383,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .drawer-logo {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .drawer-logo img {
@@ -395,9 +397,9 @@
 
 .drawer-about-text {
   font-size: 14.5px;
-  line-height: 1.68;
+  line-height: 1.65;
   color: #4b5563;
-  margin-bottom: 30px;
+  margin-bottom: 22px;
   text-align: left;
 }
 
@@ -405,9 +407,9 @@
 .drawer-contact-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 18px;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .drawer-info-item {
@@ -420,7 +422,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: #f0fdf4;
+  background: linear-gradient(180deg, #004dad 0%, #4BAD49 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -471,8 +473,9 @@
 /* Drawer Footer Socials */
 .drawer-footer {
   width: 100%;
-  padding-top: 9px;
+  padding-top: 18px;
   border-top: 1px solid #f1f5f9;
+  margin-top: 5px;
 }
 
 .drawer-socials {

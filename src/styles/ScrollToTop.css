@@ -33,11 +33,12 @@
 /* SVG Progress Ring Positioning */
 .scroll-progress-svg {
   position: absolute;
-  top: -4;
-  left: -4;
-  width: 52px;
-  height: 52px;
+  top: 0;
+  left: 0;  
+  width: 100%;
+  height: 100%;
   transform: rotate(-90deg); /* Start circle progress from top (12 o'clock position) */
+  pointer-events: none;
 }
 
 .progress-fill-ring {

@@ -45,8 +45,8 @@ const ScrollToTop = () => {
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      {/* SVG Progress Circle Ring (Orange border loads as page scrolls) */}
-      <svg className="scroll-progress-svg" width="52" height="52" viewBox="0 0 52 52">
+      {/* SVG Progress Circle Ring */}
+      <svg className="scroll-progress-svg" viewBox="0 0 52 52">
         {/* Background Track */}
         <circle
           className="progress-bg-track"
