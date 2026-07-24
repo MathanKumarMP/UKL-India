@@ -263,7 +263,7 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
                 </svg>
               </span>
               <div className="drawer-info-content">
-                <a href="tel:+919841127656" className="drawer-phone-link">
+                <a href="tel:+91 98411 27656" className="drawer-phone-link">
                   Call Us: +91 98411 27656
                 </a>
               </div>

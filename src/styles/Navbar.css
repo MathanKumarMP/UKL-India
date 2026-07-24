@@ -62,7 +62,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #4BAD49;
+  background: linear-gradient(180deg, #004dad 0%, #4BAD49 100%);
   display: flex;
   align-items: center;
   justify-content: center;
