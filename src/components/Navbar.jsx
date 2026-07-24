@@ -264,7 +264,7 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
               </span>
               <div className="drawer-info-content">
                 <a href="tel:+91 98411 27656" className="drawer-phone-link">
-                  Call Us: +91 98411 27656
+                  Call Us: +91  98411  27656
                 </a>
               </div>
             </div>
