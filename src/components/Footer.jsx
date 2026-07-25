@@ -70,6 +70,7 @@ const Footer = ({ setActiveNav }) => {
               <li><a href="#about" onClick={() => handleLinkClick('About Us', '#about')}>About Us</a></li>
               <li><a href="#product" onClick={() => handleLinkClick('Product', '#product')}>Product</a></li>
               <li><a href="#quality" onClick={() => handleLinkClick('Quality', '#quality')}>Quality</a></li>
+              <li><a href="#gallery" onClick={() => handleLinkClick('Gallery', '#gallery')}>Gallery</a></li>
               <li><a href="#contact" onClick={() => handleLinkClick('Contact Us', '#contact')}>Contact Us</a></li>
             </ul>
           </div>

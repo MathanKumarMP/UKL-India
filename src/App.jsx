@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ProductPage from './pages/ProductPage';
 import QualityPage from './pages/QualityPage';
+import GalleryPage from './pages/GalleryPage';
 import NewsPage from './pages/NewsPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
@@ -22,6 +23,7 @@ function App() {
       if (hash === 'about') setActiveNav('About Us');
       else if (hash === 'product' || hash.includes('housing')) setActiveNav('Product');
       else if (hash === 'quality') setActiveNav('Quality');
+      else if (hash === 'gallery') setActiveNav('Gallery');
       else if (hash === 'news') setActiveNav('News');
       else if (hash === 'contact') setActiveNav('Contact Us');
       else if (hash === 'home' || hash === '') setActiveNav('Home');
@@ -52,6 +54,8 @@ function App() {
         return <ProductPage />;
       case 'Quality':
         return <QualityPage />;
+      case 'Gallery':
+        return <GalleryPage />;
       case 'News':
         return <NewsPage />;
       case 'Contact Us':

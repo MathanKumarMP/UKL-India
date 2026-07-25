@@ -7,18 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Diagnostic & IDE directories
+.antigravity
+.gemini
+.agents
+
+# Node dependencies & Build outputs
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Editor directories and OS files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
-*.ntvs*
+*.ntvsca
 *.njsproj
 *.sln
 *.sw?

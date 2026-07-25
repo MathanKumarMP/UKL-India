@@ -3,7 +3,7 @@ import '../styles/QualityCertifications.css';
 import asmeLogo from '../assets/logo RP.png';
 import tuvLogo from '../assets/logo TUV.png';
 import nbbiLogo from '../assets/logo NBBI.png';
-import nsfLogo from '../assets/NSF.png';
+import nsfLogo from '../assets/image copy 2.png';
 
 const QualityCertifications = () => {
   const certs = [
@@ -30,20 +30,9 @@ const QualityCertifications = () => {
     
     {
       id: 'nsf',
-      title: 'NSF International',
-      description: (
-        <>
-          This certificate is the property of NSF International and must be returned upon request. This certificate remains valid as long as this client has products in NSF’s Official Listings for the referenced standards. For the most current and complete Listing information, please access NSF’s website{' '}
-          <a
-            href="https://www.nsf.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#0284c7', textDecoration: 'underline', fontWeight: 600 }}
-          >
-            https://www.nsf.org/
-          </a>.
-        </>
-      ),
+      title: 'NSF',
+      description:
+        'NSF (National Sanitation Foundation) International is the US recognized standard for components which contact drinking water to ensure that they do not contribute contaminants that could cause health problems. The NSF certification mark shows that our products comply with all standard requirements. NSF conducts periodic unannounced inspections and product testing to verify that our products continues to comply with the standard.',
       hasBtn: true,
       pdfUrl: '/Certificate-C0838879.pdf',
       logoImg: nsfLogo,
@@ -65,6 +54,14 @@ const QualityCertifications = () => {
       <div className="quality-certs-container">
         {/* Intro Section Header */}
         <div className="quality-intro-header">
+          <div className="quality-subtitle">
+            <span className="asterisk-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+              </svg>
+            </span>
+            <span className="subtitle-text">Certifications & Accreditations</span>
+          </div>
           <h2 className="quality-intro-title">Quality</h2>
           <p className="quality-intro-paragraph">
             At UKL Instruments, products are produced to the highest standard of quality and safety.
@@ -74,8 +71,8 @@ const QualityCertifications = () => {
           </p>
         </div>
 
-        {/* 4 Accreditation Cards Stack */}
-        <div className="certs-stack">
+        {/* 4 Accreditation Cards 2-Column Grid */}
+        <div className="certs-grid">
           {certs.map((item) => (
             <div key={item.id} className="cert-card">
               {/* Left Column: Light Gray Box with Official Stamp Logo */}
@@ -90,23 +87,33 @@ const QualityCertifications = () => {
                 <h3 className="cert-title">{item.title}</h3>
                 <div className="cert-description">{item.description}</div>
 
-                {item.hasBtn && (
-                  <a
-                    href={item.pdfUrl || '#'}
-                    className="cert-download-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <span className="cert-btn-circle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
+                <div className="cert-action-row">
+                  {item.hasBtn ? (
+                    <a
+                      href={item.pdfUrl || '#'}
+                      className="cert-download-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <span className="cert-btn-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </span>
+                      <span className="btn-text">View Certificate</span>
+                    </a>
+                  ) : (
+                    <span className="cert-verified-tag">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
                       </svg>
+                      Accredited Standard Verified
                     </span>
-                    <span className="btn-text">View Certificate</span>
-                  </a>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           ))}

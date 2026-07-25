@@ -30,6 +30,7 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
     { name: 'About Us', href: '#about' },
     { name: 'Product', href: '#product' },
     { name: 'Quality', href: '#quality' },
+    { name: 'Gallery', href: '#gallery' },
     { name: 'News', href: '#news' },
     { name: 'Contact Us', href: '#contact' },
   ];
