@@ -9,74 +9,75 @@ import g6 from '../assets/ASME.jpg';
 import g7 from '../assets/grid-item-1.png';
 import g8 from '../assets/grid-item-2.png';
 import g9 from '../assets/grid-item-3.png';
+import buildingFront from '../assets/building-front.png';
+import buildingSide from '../assets/building-side.png';
+import capCloseup from '../assets/cap-closeup.png';
+import endPortHousing from '../assets/end-port-housing.png';
+import frpVessels from '../assets/frp-vessels.png';
+import aboutUs from '../assets/about us.png';
 
 const GalleryGrid = () => {
   const [activeTab, setActiveTab] = useState('photo'); // 'photo' or 'video'
   const [activeModalItem, setActiveModalItem] = useState(null);
+  const [modalImgIndex, setModalImgIndex] = useState(0);
+
+  // Track active image index per card: { [itemId]: number }
+  const [cardImageIndices, setCardImageIndices] = useState({});
 
   const photoItems = [
     {
       id: 1,
       type: 'image',
       title: 'UKL Instruments Main Manufacturing Complex',
-      img: g5,
-      desc: 'State-of-the-art manufacturing plant in Chennai, India for high-pressure FRP membrane housings.',
+      images: [g5, buildingFront, buildingSide],
     },
     {
       id: 2,
       type: 'image',
       title: '8 Inch Side Port Vessel Assembly',
-      img: g1,
-      desc: 'High-grade composite pressure vessels rated up to 1200 PSI with mirror-finish inner diameter.',
+      images: [g1, g7, frpVessels],
     },
     {
       id: 3,
       type: 'image',
       title: '4 Inch End Port Membrane Housing',
-      img: g2,
-      desc: 'Precision engineered 4-inch end entry FRP pressure vessels for brackish and seawater RO plants.',
+      images: [g2, endPortHousing, capCloseup],
     },
     {
       id: 4,
       type: 'image',
       title: 'ASME Section X Certification Inspection',
-      img: g6,
-      desc: 'Boiler & Pressure Vessel Code (BPVC) compliance stamp verification for burst pressure safety.',
+      images: [g6, g4, g8],
     },
     {
       id: 5,
       type: 'image',
       title: 'Inner Diameter Mirror-Finish Polishing Station',
-      img: g3,
-      desc: 'Automated mirror-finish interior surface treatment ensuring smooth membrane loading & unloading.',
+      images: [g3, g8, g1],
     },
     {
       id: 6,
       type: 'image',
       title: 'Quality Assurance Hydro-Testing Station',
-      img: g4,
-      desc: '100% hydrostatic burst and leak testing performed on every pressure vessel before shipment.',
+      images: [g4, g6, g2],
     },
     {
       id: 7,
       type: 'image',
       title: 'Multi-Port RO Membrane Shell Production',
-      img: g7,
-      desc: 'Heavy-duty multi-port side entry housing configurations for high-capacity desalination plants.',
+      images: [g7, g1, frpVessels],
     },
     {
       id: 8,
       type: 'image',
       title: 'Composite Shell Winding & Curing Division',
-      img: g8,
-      desc: 'Advanced CNC filament winding machine applying continuous glass fiber filament reinforced epoxy resin.',
+      images: [g8, g3, g5],
     },
     {
       id: 9,
       type: 'image',
       title: 'Final Export Packaging & Dispatch Unit',
-      img: g9,
-      desc: 'Export-grade protective wooden crate packing ready for sea freight to global clients.',
+      images: [g9, aboutUs, g7],
     },
   ];
 
@@ -87,7 +88,6 @@ const GalleryGrid = () => {
       title: 'UKL High-Pressure Hydrostatic Testing Process',
       img: g4,
       videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-      desc: 'Live video demonstration of 100% hydrostatic pressure testing performed at 1.5x design pressure.',
     },
     {
       id: 102,
@@ -95,7 +95,6 @@ const GalleryGrid = () => {
       title: 'CNC Filament Winding & Shell Curing Technology',
       img: g8,
       videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      desc: 'High-precision computer controlled glass fiber filament winding operation inside our Chennai facility.',
     },
     {
       id: 103,
@@ -103,16 +102,59 @@ const GalleryGrid = () => {
       title: 'Inner Diameter Mirror-Finish Surface Treatment',
       img: g3,
       videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-      desc: 'Smooth interior surface polishing ensuring easy RO membrane loading and zero abrasion during installation.',
     },
   ];
+
+  // Helper for Card Arrow Click
+  const handleCardPrevImage = (e, item) => {
+    e.stopPropagation();
+    const total = item.images ? item.images.length : 1;
+    const current = cardImageIndices[item.id] || 0;
+    const prev = current === 0 ? total - 1 : current - 1;
+    setCardImageIndices({ ...cardImageIndices, [item.id]: prev });
+  };
+
+  const handleCardNextImage = (e, item) => {
+    e.stopPropagation();
+    const total = item.images ? item.images.length : 1;
+    const current = cardImageIndices[item.id] || 0;
+    const next = (current + 1) % total;
+    setCardImageIndices({ ...cardImageIndices, [item.id]: next });
+  };
+
+  // Switch thumbnail direct click
+  const handleSelectCardImage = (e, item, idx) => {
+    e.stopPropagation();
+    setCardImageIndices({ ...cardImageIndices, [item.id]: idx });
+  };
+
+  // Open Modal Lightbox
+  const handleOpenModal = (item) => {
+    setActiveModalItem(item);
+    setModalImgIndex(cardImageIndices[item.id] || 0);
+  };
+
+  // Modal Arrows Click
+  const handleModalPrevImage = (e) => {
+    e.stopPropagation();
+    if (!activeModalItem || !activeModalItem.images) return;
+    const total = activeModalItem.images.length;
+    setModalImgIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  };
+
+  const handleModalNextImage = (e) => {
+    e.stopPropagation();
+    if (!activeModalItem || !activeModalItem.images) return;
+    const total = activeModalItem.images.length;
+    setModalImgIndex((prev) => (prev + 1) % total);
+  };
 
   const currentDisplayItems = activeTab === 'photo' ? photoItems : videoItems;
 
   return (
     <section className="gallery-section">
       <div className="gallery-container">
-        
+
         {/* Intro Section Header */}
         <div className="gallery-intro-header">
           <div className="gallery-subtitle">
@@ -155,38 +197,60 @@ const GalleryGrid = () => {
           </div>
         </div>
 
-        {/* 3 Column Media Gallery Grid */}
+        {/* Media Gallery Grid */}
         <div className="gallery-items-grid">
-          {currentDisplayItems.map((item) => (
-            <div key={item.id} className="gallery-photo-card" onClick={() => setActiveModalItem(item)}>
-              <div className="gallery-img-wrapper">
-                <img src={item.img} alt={item.title} className="gallery-photo-img" />
-                
-                {/* Overlay Zoom / Play Icon */}
-                <div className="gallery-overlay">
-                  <div className={`gallery-zoom-icon ${item.type === 'video' ? 'video-play-btn' : ''}`}>
-                    {item.type === 'video' ? (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+          {currentDisplayItems.map((item) => {
+            const currentImgIndex = cardImageIndices[item.id] || 0;
+            const currentImgSrc = item.images ? item.images[currentImgIndex] : item.img;
+
+            return (
+              <div key={item.id} className="gallery-photo-card" onClick={() => handleOpenModal(item)}>
+                <div className="gallery-img-wrapper">
+                  <img src={currentImgSrc} alt={item.title} className="gallery-photo-img" />
+
+                  {/* Top Right Photo Count Glass Badge */}
+                  {item.images && item.images.length > 1 && (
+                    <div className="card-photo-count-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
                       </svg>
-                    ) : (
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        <line x1="11" y1="8" x2="11" y2="14" />
-                        <line x1="8" y1="11" x2="14" y2="11" />
-                      </svg>
-                    )}
+                      <span>{currentImgIndex + 1}/{item.images.length}</span>
+                    </div>
+                  )}
+
+                  {/* Sleek Center Expand Pill Overlay on Hover */}
+                  <div className="gallery-overlay">
+                    <div className="gallery-expand-pill">
+                      {item.type === 'video' ? (
+                        <>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                          </svg>
+                          <span>Play Video</span>
+                        </>
+                      ) : (
+                        <>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            <line x1="11" y1="8" x2="11" y2="14" />
+                            <line x1="8" y1="11" x2="14" y2="11" />
+                          </svg>
+                          <span>View Fullscreen</span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-card-body">
-                <h3 className="gallery-photo-title">{item.title}</h3>
-                <p className="gallery-photo-desc">{item.desc}</p>
+                <div className="gallery-card-body">
+                  <h3 className="gallery-photo-title">{item.title}</h3>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -201,12 +265,33 @@ const GalleryGrid = () => {
             {activeModalItem.type === 'video' && activeModalItem.videoUrl ? (
               <video src={activeModalItem.videoUrl} controls autoPlay className="gallery-modal-video" />
             ) : (
-              <img src={activeModalItem.img} alt={activeModalItem.title} className="gallery-modal-img" />
+              <div className="modal-image-slider-wrapper">
+                <img
+                  src={activeModalItem.images ? activeModalItem.images[modalImgIndex] : activeModalItem.img}
+                  alt={activeModalItem.title}
+                  className="gallery-modal-img"
+                />
+
+                {/* Left & Right Modal Arrow Navigation */}
+                {activeModalItem.images && activeModalItem.images.length > 1 && (
+                  <>
+                    <button className="modal-nav-arrow modal-prev" onClick={handleModalPrevImage} aria-label="Previous photo">
+                      ‹
+                    </button>
+                    <button className="modal-nav-arrow modal-next" onClick={handleModalNextImage} aria-label="Next photo">
+                      ›
+                    </button>
+
+                    <div className="modal-img-counter">
+                      {modalImgIndex + 1} / {activeModalItem.images.length}
+                    </div>
+                  </>
+                )}
+              </div>
             )}
 
             <div className="gallery-modal-caption">
               <h3>{activeModalItem.title}</h3>
-              <p>{activeModalItem.desc}</p>
             </div>
           </div>
         </div>

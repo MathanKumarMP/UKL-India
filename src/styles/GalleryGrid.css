@@ -97,12 +97,12 @@
   stroke: #ffffff;
 }
 
-/* 3 Column Grid */
+/* 4 Column Grid */
 .gallery-items-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1240px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -111,8 +111,8 @@
   border-radius: 20px;
   overflow: hidden;
   border: 1.5px solid #e9edf1;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -124,11 +124,11 @@
   box-shadow: 0 18px 40px rgba(0, 77, 173, 0.14);
 }
 
-/* Image Box & Hover Zoom Overlay */
+/* Image Box & Pristine View */
 .gallery-img-wrapper {
   position: relative;
   width: 100%;
-  height: 230px;
+  height: 200px;
   overflow: hidden;
   background-color: #f8fafc;
 }
@@ -144,65 +144,179 @@
   transform: scale(1.08);
 }
 
+/* Floating Top-Right Glass Count Badge */
+.card-photo-count-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(12, 11, 32, 0.65);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 5;
+  transition: all 0.25s ease;
+}
+
+.gallery-photo-card:hover .card-photo-count-badge {
+  background: rgba(0, 77, 173, 0.85);
+  border-color: #4BAD49;
+}
+
+/* Sleek Hover Arrow Controls (Hidden by default, reveal smoothly on hover) */
+.card-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.85);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  border: none;
+  color: #0c0b20;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-photo-card:hover .card-slider-arrow {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.card-slider-arrow:hover {
+  background: linear-gradient(135deg, #004dad, #4BAD49);
+  color: #ffffff !important;
+  transform: translateY(-50%) scale(1.15) !important;
+}
+
+.card-slider-arrow.prev-arrow {
+  left: 10px;
+}
+
+.card-slider-arrow.next-arrow {
+  right: 10px;
+}
+
+/* Floating Center Expand Pill Overlay on Hover */
 .gallery-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 77, 173, 0.45);
+  background: rgba(12, 11, 32, 0.35);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
 .gallery-photo-card:hover .gallery-overlay {
   opacity: 1;
 }
 
-.gallery-zoom-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #004dad, #4BAD49);
-  display: flex;
+.gallery-expand-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
+  gap: 7px;
+  background: linear-gradient(135deg, #004dad, #4BAD49);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 77, 173, 0.4);
+  transform: translateY(10px) scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-photo-card:hover .gallery-zoom-icon {
-  transform: scale(1);
+.gallery-photo-card:hover .gallery-expand-pill {
+  transform: translateY(0) scale(1);
 }
 
-/* Card Body */
+/* Card Body & Title Text Wrapping */
 .gallery-card-body {
-  padding: 24px 26px;
+  padding: 2px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   flex: 1;
+  min-height: 52px;
 }
 
 .gallery-photo-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 12.5px;
+  font-weight: 700;
   color: #0c0b20;
-  margin: 0 0 8px 0;
-  line-height: 1.35;
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  width: 100%;
+
+  /* Perfect Text Wrapping */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
-.gallery-photo-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
+.card-thumb-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.card-thumb-box {
+  width: 44px;
+  height: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background-color: #f8fafc;
+}
+
+.card-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-thumb-box:hover img {
+  transform: scale(1.15);
+}
+
+.card-thumb-box.active {
+  border-color: #4BAD49;
+  box-shadow: 0 0 0 2px rgba(75, 173, 73, 0.25);
+  transform: scale(1.05);
 }
 
 /* Lightbox Modal */
@@ -212,7 +326,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(12, 11, 32, 0.85);
+  background: rgba(12, 11, 32, 0.88);
   backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
@@ -226,10 +340,13 @@
   position: relative;
   background-color: #ffffff;
   border-radius: 24px;
-  max-width: 840px;
-  width: 100%;
+  max-width: 80vw;
+  width: 80%;
+  max-height: 85vh;
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-modal-close {
@@ -249,7 +366,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 20;
   transition: all 0.2s ease;
 }
 
@@ -258,31 +375,84 @@
   color: #ffffff;
 }
 
+/* Modal Slider Navigation */
+.modal-image-slider-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #0c0b20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-height: 70vh;
+}
+
 .gallery-modal-img,
 .gallery-modal-video {
   width: 100%;
-  max-height: 500px;
-  object-fit: cover;
+  max-height: 70vh;
+  object-fit: contain;
   display: block;
-  background-color: #000000;
+}
+
+.modal-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #0c0b20;
+  font-size: 26px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 15;
+  transition: all 0.2s ease;
+}
+
+.modal-nav-arrow:hover {
+  background: linear-gradient(135deg, #004dad, #4BAD49);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav-arrow.modal-prev {
+  left: 18px;
+}
+
+.modal-nav-arrow.modal-next {
+  right: 18px;
+}
+
+.modal-img-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  background-color: rgba(12, 11, 32, 0.75);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
 }
 
 .gallery-modal-caption {
-  padding: 24px 30px;
+  padding: 20px 26px;
   background-color: #ffffff;
+  text-align: center;
 }
 
 .gallery-modal-caption h3 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   color: #0c0b20;
-  margin: 0 0 6px 0;
-}
-
-.gallery-modal-caption p {
-  font-size: 14.5px;
-  color: #475569;
-  line-height: 1.6;
   margin: 0;
 }
 
@@ -290,7 +460,7 @@
 @media (max-width: 1024px) {
   .gallery-items-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
 
   .gallery-heading {
@@ -304,12 +474,12 @@
   }
 
   .gallery-container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .gallery-items-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 
   .gallery-heading {

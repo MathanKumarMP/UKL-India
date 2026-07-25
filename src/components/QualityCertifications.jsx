@@ -7,16 +7,7 @@ import nsfLogo from '../assets/image copy 2.png';
 
 const QualityCertifications = () => {
   const certs = [
-    {
-      id: 'asme',
-      title: 'ASME',
-      description:
-        'The FRP membrane housings meet the Boiler and Pressure Vessel Code (BPVC) of American Society of Mechanical Engineers (ASME, Section X) for the production of Fiber Reinforced Plastic Pressure vessels.',
-      hasBtn: true,
-      pdfUrl: '/107360-BPV-CERT-10.15.25-RR.pdf',
-      logoImg: asmeLogo,
-      alt: 'ASME Certification Stamp Logo'
-    },
+    
     {
       id: 'iso',
       title: 'ISO 9001:2015',
@@ -37,6 +28,16 @@ const QualityCertifications = () => {
       pdfUrl: '/Certificate-C0838879.pdf',
       logoImg: nsfLogo,
       alt: 'NSF International Certification Logo'
+    },
+    {
+      id: 'asme',
+      title: 'ASME',
+      description:
+        'The FRP membrane housings meet the Boiler and Pressure Vessel Code (BPVC) of American Society of Mechanical Engineers (ASME, Section X) for the production of Fiber Reinforced Plastic Pressure vessels.',
+      hasBtn: true,
+      pdfUrl: '/107360-BPV-CERT-10.15.25-RR.pdf',
+      logoImg: asmeLogo,
+      alt: 'ASME Certification Stamp Logo'
     },
     {
       id: 'nbbi',
@@ -105,13 +106,9 @@ const QualityCertifications = () => {
                       <span className="btn-text">View Certificate</span>
                     </a>
                   ) : (
-                    <span className="cert-verified-tag">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                      </svg>
-                      Accredited Standard Verified
-                    </span>
+
+
+                    <></>
                   )}
                 </div>
               </div>
