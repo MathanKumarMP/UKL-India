@@ -52,7 +52,7 @@ const ProductVariations = ({ onSelectProduct }) => {
           <h2 className="variations-heading">Product Variations</h2>
         </div>
 
-        {/* 4 Cards Row Grid matching User Screenshot 2 */}
+        {/* 4 Cards Row Grid matching User Request */}
         <div className="variations-grid">
           {variations.map((item) => (
             <div
@@ -60,10 +60,11 @@ const ProductVariations = ({ onSelectProduct }) => {
               className="variation-card"
               onClick={() => handleCardClick(item.title)}
             >
-              {/* Default Normal State: Light Card with Vessel Image */}
+              {/* Default Normal State: Light Card with Vessel Image & Default Visible Title */}
               <div className="variation-img-box">
                 <img src={item.img} alt={item.title} />
               </div>
+              <h3 className="variation-card-title-default">{item.title}</h3>
 
               {/* Hover State: Blue-Green Gradient Overlay with Arrow & Title */}
               <div className="variation-hover-overlay">

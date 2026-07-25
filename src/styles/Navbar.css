@@ -280,6 +280,10 @@
   color: #ffffff;
 }
 
+.mobile-menu-enquire-btn {
+  display: none;
+}
+
 /* Grid Icon Button */
 .grid-icon-btn {
   background: none;

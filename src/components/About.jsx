@@ -44,31 +44,40 @@ const About = () => {
             UKL membrane housings are available with end entry design and also side entry design. This is used for Residential, commercial, municipal and industrial RO applications. Membrane housings are available in operating pressure of 300psi, 450psi, 600psi, 1000psi and 1200psi. They are manufactured using the fiber glass-epoxy composite to meet the stringent demands of the RO processes.
           </p>
 
-          {/* Single Horizontal Row Checkmark Features */}
-          <div className="about-features-row">
-            {highlights.map((item, idx) => (
-              <div key={idx} className="feature-item">
-                <span className="check-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                </span>
-                <span className="feature-text">{item}</span>
-              </div>
-            ))}
+          {/* Mobile Image (Visible under paragraph on mobile responsive) */}
+          <div className="about-image-column-mobile">
+            <div className="about-img-box">
+              <img src={aboutUsImg} alt="UKL 4 inch and 8 inch FRP Membrane Housings" className="about-img" />
+            </div>
           </div>
 
-          {/* View More Button (Pill Button with White Arrow Circle on Left) */}
-          <a href="#product" className="view-more-btn">
-            <span className="view-more-circle">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1d68a6" strokeWidth="2.5">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </span>
-            <span className="view-more-text">View More</span>
-          </a>
+          {/* Features & Action Row Wrapper */}
+          <div className="about-action-wrapper">
+            <div className="about-features-row">
+              {highlights.map((item, idx) => (
+                <div key={idx} className="feature-item">
+                  <span className="check-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#20bf6b" strokeWidth="2.5">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </span>
+                  <span className="feature-text">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* View More Button */}
+            <a href="#product" className="view-more-btn">
+              <span className="view-more-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1d68a6" strokeWidth="2.5">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+              <span className="view-more-text">View More</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

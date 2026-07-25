@@ -151,6 +151,24 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
                   </React.Fragment>
                 ))}
               </ul>
+
+              {/* Mobile Menu Enquire Now Button (Visible only inside mobile toggle menu dropdown) */}
+              <a
+                href="#contact"
+                className="mobile-menu-enquire-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('Contact Us', '#contact');
+                }}
+              >
+                <span className="enquire-circle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+                <span className="enquire-text">Enquire Now</span>
+              </a>
             </nav>
 
             {/* Right Section: Grid Icon Button opens Side Drawer */}

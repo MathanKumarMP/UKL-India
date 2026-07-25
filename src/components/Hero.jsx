@@ -48,10 +48,6 @@ const Hero = () => {
                 </span>
                 <span className="btn-text">Contact Us</span>
               </button>
-
-              <div className="hero-mobile-vessels">
-                <img src={frpVessels} alt="FRP Pressure Vessels" className="mobile-vessels-img" />
-              </div>
             </div>
           </div>
         </div>

@@ -53,13 +53,14 @@
 .variation-card {
   background-color: #f8fafc;
   border-radius: 24px;
-  padding: 24px;
+  padding: 24px 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   border: 1.5px solid #e9edf1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 220px;
+  justify-content: space-between;
+  min-height: 230px;
   position: relative;
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
@@ -75,7 +76,7 @@
 /* Default Image Box */
 .variation-img-box {
   width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +84,7 @@
 
 .variation-img-box img {
   max-width: 100%;
-  max-height: 150px;
+  max-height: 135px;
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
@@ -91,6 +92,19 @@
 
 .variation-card:hover .variation-img-box img {
   transform: scale(1.06);
+}
+
+/* Default Visible Title below vessel image */
+.variation-card-title-default {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0c0b20;
+  text-align: center;
+  margin: 12px 0 0 0;
+  line-height: 1.3;
+  width: 100%;
+  z-index: 1;
 }
 
 /* Hover State: Gradient Overlay Revealed ONLY on Hover matching linear-gradient(135deg, #004dad, #4BAD49) */

@@ -1,112 +1,32 @@
 import React from 'react';
 import '../styles/Clients.css';
 import ScrollReveal from './ScrollReveal';
+import wiproLogo from '../assets/wipro.png';
+import thermaxLogo from '../assets/til.png';
+import bgrLogo from '../assets/bgr.png';
+import ionLogo from '../assets/ion.png';
 
 const Clients = () => {
   const clientList = [
     {
-      id: 'thermax',
-      name: 'THERMAX',
-      logo: (
-        <svg width="170" height="75" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Red T Symbol */}
-          <path d="M75 10H125V28H108V52H92V28H75V10Z" fill="#E31E24" />
-          <path d="M75 10H88V28H75V10Z" fill="#C4161B" />
-          <path d="M112 10H125V28H112V10Z" fill="#C4161B" />
-          <path d="M88 28H112V52H88V28Z" fill="#E31E24" />
-          {/* Text THERMAX */}
-          <text x="100" y="70" textAnchor="middle" fontFamily="'Plus Jakarta Sans', Arial, sans-serif" fontWeight="900" fontSize="19" fill="#111827" letterSpacing="1.5">
-            THERMAX
-          </text>
-        </svg>
-      ),
-    },
-    {
-      id: 'ion-exchange',
-      name: 'ION EXCHANGE',
-      logo: (
-        <svg width="190" height="75" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Cyan/Blue Circle dot icon */}
-          <circle cx="28" cy="28" r="7" fill="#0088CC" />
-          <circle cx="28" cy="28" r="4" fill="#00AEEF" />
-          <path d="M28 17C21.925 17 17 21.925 17 28C17 34.075 21.925 39 28 39C32.1 39 35.6 36.7 37.4 33.3H31.5C30.6 34.3 29.4 35 28 35C24.1 35 21 31.9 21 28C21 24.1 24.1 21 28 21C29.4 21 30.6 21.7 31.5 22.7H37.4C35.6 19.3 32.1 17 28 17Z" fill="#0088CC" />
-          {/* Text ION EXCHANGE */}
-          <text x="44" y="34" fontFamily="'Plus Jakarta Sans', Arial, sans-serif" fontWeight="800" fontSize="20" fill="#0088CC" letterSpacing="0.5">
-            ION EXCHANGE
-          </text>
-          {/* Script Subtext Refreshing the Planet */}
-          <text x="125" y="54" textAnchor="middle" fontFamily="'Dancing Script', 'Brush Script MT', cursive" fontWeight="700" fontSize="16" fill="#20BF6B" fontStyle="italic">
-            Refreshing the Planet
-          </text>
-        </svg>
-      ),
-    },
-    {
       id: 'wipro',
-      name: 'wipro',
-      logo: (
-        <svg width="170" height="75" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Wipro Dotted Multi-colored Flower/Sphere Logo */}
-          <g transform="translate(45, 40)">
-            {/* Outer ring of dots */}
-            <circle cx="0" cy="-22" r="2.5" fill="#E83E8C" />
-            <circle cx="11" cy="-19" r="2.5" fill="#FD7E14" />
-            <circle cx="19" cy="-11" r="2.5" fill="#FFC107" />
-            <circle cx="22" cy="0" r="2.5" fill="#28A745" />
-            <circle cx="19" cy="11" r="2.5" fill="#20C997" />
-            <circle cx="11" cy="19" r="2.5" fill="#17A2B8" />
-            <circle cx="0" cy="22" r="2.5" fill="#007BFF" />
-            <circle cx="-11" cy="19" r="2.5" fill="#6610F2" />
-            <circle cx="-19" cy="11" r="2.5" fill="#6F42C1" />
-            <circle cx="-22" cy="0" r="2.5" fill="#E83E8C" />
-            <circle cx="-19" cy="-11" r="2.5" fill="#D63384" />
-            <circle cx="-11" cy="-19" r="2.5" fill="#DC3545" />
-
-            {/* Middle ring of dots */}
-            <circle cx="0" cy="-15" r="2.2" fill="#FD7E14" />
-            <circle cx="7.5" cy="-13" r="2.2" fill="#FFC107" />
-            <circle cx="13" cy="-7.5" r="2.2" fill="#28A745" />
-            <circle cx="15" cy="0" r="2.2" fill="#17A2B8" />
-            <circle cx="13" cy="7.5" r="2.2" fill="#007BFF" />
-            <circle cx="7.5" cy="13" r="2.2" fill="#6610F2" />
-            <circle cx="0" cy="15" r="2.2" fill="#6F42C1" />
-            <circle cx="-7.5" cy="13" r="2.2" fill="#E83E8C" />
-            <circle cx="-13" cy="7.5" r="2.2" fill="#DC3545" />
-            <circle cx="-15" cy="0" r="2.2" fill="#FD7E14" />
-            <circle cx="-13" cy="-7.5" r="2.2" fill="#FFC107" />
-            <circle cx="-7.5" cy="-13" r="2.2" fill="#28A745" />
-
-            {/* Inner ring */}
-            <circle cx="0" cy="-8" r="1.8" fill="#20C997" />
-            <circle cx="7" cy="0" r="1.8" fill="#007BFF" />
-            <circle cx="0" cy="8" r="1.8" fill="#6F42C1" />
-            <circle cx="-7" cy="0" r="1.8" fill="#E83E8C" />
-            <circle cx="0" cy="0" r="2" fill="#343A40" />
-          </g>
-          {/* Text wipro */}
-          <text x="130" y="47" textAnchor="middle" fontFamily="'Plus Jakarta Sans', Arial, sans-serif" fontWeight="700" fontSize="26" fill="#3D2069" letterSpacing="-0.5">
-            wipro
-          </text>
-        </svg>
-      ),
+      name: 'Wipro',
+      logoSrc: wiproLogo,
+    },
+    {
+      id: 'thermax',
+      name: 'Thermax',
+      logoSrc: thermaxLogo,
     },
     {
       id: 'bgr-energy',
-      name: 'BGR ENERGY',
-      logo: (
-        <svg width="170" height="75" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* BGR Ring with Red Center Dot */}
-          <circle cx="100" cy="26" r="14" stroke="#0072BC" strokeWidth="4.5" fill="none" />
-          <circle cx="100" cy="26" r="6" fill="#ED1C24" />
-          {/* Text BGR ENERGY */}
-          <text x="100" y="55" textAnchor="middle" fontFamily="'Plus Jakarta Sans', Arial, sans-serif" fontWeight="900" fontSize="21" fill="#0072BC" letterSpacing="0.5">
-            BGR
-          </text>
-          <text x="100" y="70" textAnchor="middle" fontFamily="'Plus Jakarta Sans', Arial, sans-serif" fontWeight="800" fontSize="13" fill="#ED1C24" letterSpacing="1.8">
-            ENERGY
-          </text>
-        </svg>
-      ),
+      name: 'BGR Energy',
+      logoSrc: bgrLogo,
+    },
+    {
+      id: 'ion-exchange',
+      name: 'Ion Exchange',
+      logoSrc: ionLogo,
     },
     {
       id: 'l-and-t',
@@ -205,7 +125,11 @@ const Clients = () => {
             {marqueeItems.map((client, index) => (
               <div key={`${client.id}-${index}`} className="client-logo-card">
                 <div className="client-logo-inner">
-                  {client.logo}
+                  {client.logoSrc ? (
+                    <img src={client.logoSrc} alt={client.name} className="client-logo-img" />
+                  ) : (
+                    client.logo
+                  )}
                 </div>
               </div>
             ))}

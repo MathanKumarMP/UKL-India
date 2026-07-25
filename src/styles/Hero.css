@@ -285,21 +285,17 @@
   .hero-action-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     gap: 12px;
   }
 
   .hero-mobile-vessels {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    display: none !important;
   }
 
   .mobile-vessels-img {
-    max-width: 145px;
-    max-height: 80px;
+    display: none !important;
   }
 
   .hero-graphic {

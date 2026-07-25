@@ -55,7 +55,7 @@ const ContactFormMapSection = () => {
   return (
     <section className="contact-form-map-section" id="contact">
       <div className="contact-form-map-container">
-        
+
         {/* Left Column: Title, Intro & Embedded Google Map */}
         <div className="contact-left-col">
           <div className="contact-subtitle">

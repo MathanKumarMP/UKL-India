@@ -24,6 +24,8 @@ const ProductPage = ({ initialProduct }) => {
         setSelectedProduct('4 Housing End Port');
       } else if (hash.includes('4-housing-side-port') || hash.includes('4housingsideport')) {
         setSelectedProduct('4 Housing Side Port');
+      } else {
+        setSelectedProduct(null);
       }
     };
 
@@ -85,18 +87,20 @@ const ProductPage = ({ initialProduct }) => {
       {/* Product Detail or General Product Content */}
       {renderMainContent()}
 
-      {/* Product Variations section positioned right above the Footer */}
-      <ProductVariations
-        activeTitle={selectedProduct || '8 Housing End Port'}
-        onSelectProduct={(title) => {
-          setSelectedProduct(title);
-          if (title === '8 Housing End Port') window.location.hash = '#8-housing-end-port';
-          else if (title === '8 Housing Side Port') window.location.hash = '#8-housing-side-port';
-          else if (title === '4 Housing End Port') window.location.hash = '#4-housing-end-port';
-          else if (title === '4 Housing Side Port') window.location.hash = '#4-housing-side-port';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-      />
+      {/* Render Product Variations only on main Product page, not on specific housing detail pages */}
+      {!selectedProduct && (
+        <ProductVariations
+          activeTitle={'8 Housing End Port'}
+          onSelectProduct={(title) => {
+            setSelectedProduct(title);
+            if (title === '8 Housing End Port') window.location.hash = '#8-housing-end-port';
+            else if (title === '8 Housing Side Port') window.location.hash = '#8-housing-side-port';
+            else if (title === '4 Housing End Port') window.location.hash = '#4-housing-end-port';
+            else if (title === '4 Housing Side Port') window.location.hash = '#4-housing-side-port';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        />
+      )}
     </div>
   );
 };
