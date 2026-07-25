@@ -8,16 +8,6 @@ const NewsGrid = () => {
 
   const posts = [
     {
-      id: 1,
-      title: 'स्थानीय रास्ते और दिलचस्प chicken road की कहानियां, पर्यटकों के लिए ज़रूरी जानकारी',
-      image: null,
-      author: 'ukloceansoftwars',
-      comments: 'No Comments',
-      date: '22 Jul/26',
-      excerpt:
-        'स्थानीय रास्ते और दिलचस्प chicken road की कहानियां, पर्यटकों के लिए ज़रूरी जानकारी स्थानीय रास्ते और चिकन रोड का इतिहास चिकन रोड की प्राकृतिक सुंदरता और वन्यजीव वन्यजीव संरक्षण के प्रयास चिकन रोड पर यात्रा के लिए सुझाव सुरक्षा सावधानियां चिकन रोड के आसपास के आकर्षण चिकन रोड का भविष्य...'
-    },
-    {
       id: 2,
       title: 'Choosing the Right UKL Membrane Housing for Residential and Industrial RO Systems',
       image: post2Img,
@@ -148,16 +138,7 @@ const NewsGrid = () => {
             </div>
 
             <div className="recent-posts-list">
-              {/* Recent Item 1 */}
-              <div className="recent-item-card">
-                <h4 className="recent-title">
-                  स्थानीय रास्ते और दिलचस्प chicken road की कहानियां, पर्यटकों के लिए ज़रूरी जानकारी
-                </h4>
-                <div className="recent-mini-pill">
-                  <span>👤 22 Jul/26</span>
-                  <span>💬 No Comments</span>
-                </div>
-              </div>
+             
 
               {/* Recent Item 2 */}
               <div className="recent-item-card horizontal">
