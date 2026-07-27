@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ContactFormMapSection.css';
+import { API_BASE } from '../config';
 
 const ContactFormMapSection = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const ContactFormMapSection = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validate = () => {
     const newErrors = {};
@@ -40,16 +42,40 @@ const ContactFormMapSection = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
+    
     setErrors({});
-    alert('Thank you! Your message has been sent successfully.');
-    setFormData({ name: '', phone: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${API_BASE}/api/website/enquiries`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+
+      if (data.success) {
+        alert(data.message || 'Thank you! Your message has been sent successfully.');
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        alert(data.message || 'Failed to submit enquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error('Enquiry submission error:', error);
+      alert('Failed to connect to the server. Please check if backend is running.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -74,7 +100,7 @@ const ContactFormMapSection = () => {
             Your readiness to assist keeps everything running flawlessly.
           </p>
 
-          {/* Embedded Google Map iframe for UKL Instruments (Lat: 13.046609, Long: 80.16811) */}
+          {/* Embedded Google Map iframe for UKL Instruments */}
           <div className="map-wrapper">
             <iframe
               title="UKL Instruments Location Map"
@@ -89,7 +115,7 @@ const ContactFormMapSection = () => {
           </div>
         </div>
 
-        {/* Right Column: Light Gray Contact Form Box with Custom Inline Error Messages */}
+        {/* Right Column: Contact Form Box */}
         <div className="contact-right-col">
           <div className="form-card-box">
             <h3 className="form-title">Get In Touch</h3>
@@ -104,6 +130,7 @@ const ContactFormMapSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className={errors.name ? 'input-error' : ''}
+                  disabled={isSubmitting}
                 />
                 {errors.name && (
                   <span className="field-error-text">
@@ -126,6 +153,7 @@ const ContactFormMapSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className={errors.phone ? 'input-error' : ''}
+                  disabled={isSubmitting}
                 />
                 {errors.phone && (
                   <span className="field-error-text">
@@ -148,6 +176,7 @@ const ContactFormMapSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'input-error' : ''}
+                  disabled={isSubmitting}
                 />
                 {errors.email && (
                   <span className="field-error-text">
@@ -170,6 +199,7 @@ const ContactFormMapSection = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className={errors.message ? 'input-error' : ''}
+                  disabled={isSubmitting}
                 ></textarea>
                 {errors.message && (
                   <span className="field-error-text">
@@ -183,14 +213,14 @@ const ContactFormMapSection = () => {
                 )}
               </div>
 
-              <button type="submit" className="send-msg-btn">
+              <button type="submit" className="send-msg-btn" disabled={isSubmitting}>
                 <span className="send-btn-circle">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#004dad" strokeWidth="2.5">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </span>
-                <span className="btn-text">Send Message</span>
+                <span className="btn-text">{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
             </form>
           </div>

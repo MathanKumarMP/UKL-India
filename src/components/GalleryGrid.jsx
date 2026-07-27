@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/GalleryGrid.css';
 import g1 from '../assets/Explore1.png';
 import g2 from '../assets/Explore2.png';
@@ -15,95 +15,88 @@ import capCloseup from '../assets/cap-closeup.png';
 import endPortHousing from '../assets/end-port-housing.png';
 import frpVessels from '../assets/frp-vessels.png';
 import aboutUs from '../assets/about us.png';
+import { API_BASE } from '../config';
+
+const fallbackPhotoItems = [
+  { id: 1, type: 'image', title: 'UKL Instruments Main Manufacturing Complex', images: [g5, buildingFront, buildingSide] },
+  { id: 2, type: 'image', title: '8 Inch Side Port Vessel Assembly', images: [g1, g7, frpVessels] },
+  { id: 3, type: 'image', title: '4 Inch End Port Membrane Housing', images: [g2, endPortHousing, capCloseup] },
+  { id: 4, type: 'image', title: 'ASME Section X Certification Inspection', images: [g6, g4, g8] },
+  { id: 5, type: 'image', title: 'Inner Diameter Mirror-Finish Polishing Station', images: [g3, g8, g1] },
+  { id: 6, type: 'image', title: 'Quality Assurance Hydro-Testing Station', images: [g4, g6, g2] },
+  { id: 7, type: 'image', title: 'Multi-Port RO Membrane Shell Production', images: [g7, g1, frpVessels] },
+  { id: 8, type: 'image', title: 'Composite Shell Winding & Curing Division', images: [g8, g3, g5] },
+  { id: 9, type: 'image', title: 'Final Export Packaging & Dispatch Unit', images: [g9, aboutUs, g7] },
+];
+
+const fallbackVideoItems = [
+  { id: 101, type: 'video', title: 'UKL High-Pressure Hydrostatic Testing Process', img: g4, videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
+  { id: 102, type: 'video', title: 'CNC Filament Winding & Shell Curing Technology', img: g8, videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
+  { id: 103, type: 'video', title: 'Inner Diameter Mirror-Finish Surface Treatment', img: g3, videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' },
+];
 
 const GalleryGrid = () => {
   const [activeTab, setActiveTab] = useState('photo'); // 'photo' or 'video'
   const [activeModalItem, setActiveModalItem] = useState(null);
   const [modalImgIndex, setModalImgIndex] = useState(0);
 
+  const [photoItems, setPhotoItems] = useState([]);
+  const [videoItems, setVideoItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   // Track active image index per card: { [itemId]: number }
   const [cardImageIndices, setCardImageIndices] = useState({});
 
-  const photoItems = [
-    {
-      id: 1,
-      type: 'image',
-      title: 'UKL Instruments Main Manufacturing Complex',
-      images: [g5, buildingFront, buildingSide],
-    },
-    {
-      id: 2,
-      type: 'image',
-      title: '8 Inch Side Port Vessel Assembly',
-      images: [g1, g7, frpVessels],
-    },
-    {
-      id: 3,
-      type: 'image',
-      title: '4 Inch End Port Membrane Housing',
-      images: [g2, endPortHousing, capCloseup],
-    },
-    {
-      id: 4,
-      type: 'image',
-      title: 'ASME Section X Certification Inspection',
-      images: [g6, g4, g8],
-    },
-    {
-      id: 5,
-      type: 'image',
-      title: 'Inner Diameter Mirror-Finish Polishing Station',
-      images: [g3, g8, g1],
-    },
-    {
-      id: 6,
-      type: 'image',
-      title: 'Quality Assurance Hydro-Testing Station',
-      images: [g4, g6, g2],
-    },
-    {
-      id: 7,
-      type: 'image',
-      title: 'Multi-Port RO Membrane Shell Production',
-      images: [g7, g1, frpVessels],
-    },
-    {
-      id: 8,
-      type: 'image',
-      title: 'Composite Shell Winding & Curing Division',
-      images: [g8, g3, g5],
-    },
-    {
-      id: 9,
-      type: 'image',
-      title: 'Final Export Packaging & Dispatch Unit',
-      images: [g9, aboutUs, g7],
-    },
-  ];
+  useEffect(() => {
+    const fetchGallery = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`${API_BASE}/api/website/gallery`);
+        const data = await res.json();
+        if (data.success && data.items && data.items.length > 0) {
+          const photos = [];
+          const videos = [];
 
-  const videoItems = [
-    {
-      id: 101,
-      type: 'video',
-      title: 'UKL High-Pressure Hydrostatic Testing Process',
-      img: g4,
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-    },
-    {
-      id: 102,
-      type: 'video',
-      title: 'CNC Filament Winding & Shell Curing Technology',
-      img: g8,
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    },
-    {
-      id: 103,
-      type: 'video',
-      title: 'Inner Diameter Mirror-Finish Surface Treatment',
-      img: g3,
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    },
-  ];
+          data.items.forEach(item => {
+            const fullUrls = item.mediaUrls.map(url => url.startsWith('http') ? url : `${API_BASE}${url}`);
+            
+            if (item.type === 'video') {
+              videos.push({
+                id: item._id,
+                type: 'video',
+                title: item.title || 'Video Clip',
+                img: '', // Default placeholder
+                videoUrl: fullUrls[0] || '',
+                images: fullUrls
+              });
+            } else {
+              photos.push({
+                id: item._id,
+                type: 'image',
+                title: item.title || 'Gallery Image',
+                images: fullUrls
+              });
+            }
+          });
+
+          setPhotoItems(photos);
+          setVideoItems(videos);
+        } else {
+          // If no items in DB, load static fallbacks
+          setPhotoItems(fallbackPhotoItems);
+          setVideoItems(fallbackVideoItems);
+        }
+      } catch (error) {
+        console.error('Failed to fetch gallery items:', error);
+        setPhotoItems(fallbackPhotoItems);
+        setVideoItems(fallbackVideoItems);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGallery();
+  }, []);
 
   // Helper for Card Arrow Click
   const handleCardPrevImage = (e, item) => {
@@ -120,12 +113,6 @@ const GalleryGrid = () => {
     const current = cardImageIndices[item.id] || 0;
     const next = (current + 1) % total;
     setCardImageIndices({ ...cardImageIndices, [item.id]: next });
-  };
-
-  // Switch thumbnail direct click
-  const handleSelectCardImage = (e, item, idx) => {
-    e.stopPropagation();
-    setCardImageIndices({ ...cardImageIndices, [item.id]: idx });
   };
 
   // Open Modal Lightbox
@@ -170,7 +157,7 @@ const GalleryGrid = () => {
             Explore our manufacturing facility, advanced filament winding machinery, quality testing bays, and high-pressure FRP pressure vessel products.
           </p>
 
-          {/* Media Type 2-Button Toggle: Photo & Video */}
+          {/* Media Type Toggle */}
           <div className="gallery-media-tabs">
             <button
               className={`media-tab-btn ${activeTab === 'photo' ? 'active' : ''}`}
@@ -199,14 +186,23 @@ const GalleryGrid = () => {
 
         {/* Media Gallery Grid */}
         <div className="gallery-items-grid">
-          {currentDisplayItems.map((item) => {
+          {loading && currentDisplayItems.length === 0 ? (
+            <div style={{ textAlign: 'center', width: '100%', gridColumn: '1 / -1', padding: '40px 0', fontSize: '16px', color: '#64748b' }}>
+              Loading media gallery from server...
+            </div>
+          ) : currentDisplayItems.map((item) => {
             const currentImgIndex = cardImageIndices[item.id] || 0;
-            const currentImgSrc = item.images ? item.images[currentImgIndex] : item.img;
+            const currentImgSrc = item.images && item.images.length > 0 ? item.images[currentImgIndex] : item.img;
+            const isVideo = item.type === 'video';
 
             return (
               <div key={item.id} className="gallery-photo-card" onClick={() => handleOpenModal(item)}>
                 <div className="gallery-img-wrapper">
-                  <img src={currentImgSrc} alt={item.title} className="gallery-photo-img" />
+                  {isVideo ? (
+                    <video src={item.videoUrl} className="gallery-photo-img" style={{ height: '240px', width: '100%', objectFit: 'cover' }} preload="metadata" muted />
+                  ) : (
+                    <img src={currentImgSrc} alt={item.title} className="gallery-photo-img" style={{ height: '240px', objectFit: 'cover' }} />
+                  )}
 
                   {/* Top Right Photo Count Glass Badge */}
                   {item.images && item.images.length > 1 && (
@@ -220,10 +216,10 @@ const GalleryGrid = () => {
                     </div>
                   )}
 
-                  {/* Sleek Center Expand Pill Overlay on Hover */}
+                  {/* Expand Overlay on Hover */}
                   <div className="gallery-overlay">
                     <div className="gallery-expand-pill">
-                      {item.type === 'video' ? (
+                      {isVideo ? (
                         <>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff">
                             <polygon points="5 3 19 12 5 21 5 3" />
@@ -272,7 +268,7 @@ const GalleryGrid = () => {
                   className="gallery-modal-img"
                 />
 
-                {/* Left & Right Modal Arrow Navigation */}
+                {/* Arrow Navigation */}
                 {activeModalItem.images && activeModalItem.images.length > 1 && (
                   <>
                     <button className="modal-nav-arrow modal-prev" onClick={handleModalPrevImage} aria-label="Previous photo">

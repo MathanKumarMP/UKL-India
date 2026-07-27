@@ -215,7 +215,7 @@
   .navbar-links {
     flex-direction: column !important;
     align-items: center !important;
-    gap: 16px !important;
+    gap: 10px !important;
     width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
@@ -237,6 +237,10 @@
   .nav-link:hover,
   .nav-link.active {
     color: #2ed573 !important;
+  }
+
+  .mobile-menu-enquire-btn {
+    margin-top: 14px !important;
   }
 
   /* Hero Section Mobile Layout matching screenshot */

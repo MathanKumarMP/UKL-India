@@ -6,6 +6,7 @@ import ProductPage from './pages/ProductPage';
 import QualityPage from './pages/QualityPage';
 import GalleryPage from './pages/GalleryPage';
 import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -15,17 +16,24 @@ import './styles/responsive.css';
 
 function App() {
   const [activeNav, setActiveNav] = useState('Home');
+  const [selectedNewsSlug, setSelectedNewsSlug] = useState('');
 
   // Read URL Hash on mount, hashchange, & popstate for Chrome Back/Forward buttons
   useEffect(() => {
     const handleHashSync = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const rawHash = window.location.hash.replace('#', '');
+      const hash = rawHash.toLowerCase();
       if (hash === 'about') setActiveNav('About Us');
       else if (hash === 'product' || hash.includes('housing')) setActiveNav('Product');
       else if (hash === 'quality') setActiveNav('Quality');
       else if (hash === 'gallery') setActiveNav('Gallery');
       else if (hash === 'news') setActiveNav('News');
       else if (hash === 'contact') setActiveNav('Contact Us');
+      else if (hash.startsWith('news-detail-')) {
+        const slug = rawHash.replace('news-detail-', '');
+        setSelectedNewsSlug(slug);
+        setActiveNav('NewsDetail');
+      }
       else if (hash === 'home' || hash === '') setActiveNav('Home');
     };
 
@@ -58,6 +66,8 @@ function App() {
         return <GalleryPage />;
       case 'News':
         return <NewsPage />;
+      case 'NewsDetail':
+        return <NewsDetailPage slug={selectedNewsSlug} />;
       case 'Contact Us':
         return <ContactPage />;
       case 'Home':

@@ -11,6 +11,8 @@
   display: flex;
   width: 100%;
   min-height: calc(100vh - 80px);
+  position: relative;
+  z-index: 2;
 }
 
 /* Left Half */
@@ -43,9 +45,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(11, 14, 33, 0.72) 0%, rgba(11, 14, 33, 0.52) 100%);
+  background: linear-gradient(90deg, rgba(11, 14, 33, 0.85) 0%, rgba(11, 14, 33, 0.6) 100%);
 }
 
 .hero-text-wrapper {
@@ -253,6 +255,10 @@
 
   .hero-graphic {
     min-height: 400px;
+  }
+
+  .dark-overlay {
+    width: 100%;
   }
 }
 
