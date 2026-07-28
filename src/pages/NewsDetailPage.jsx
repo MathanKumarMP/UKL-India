@@ -3,6 +3,30 @@ import '../styles/NewsDetailPage.css';
 import oceanBg from '../assets/about-banner-bg.png'; // Fallback bg
 import { API_BASE } from '../config';
 
+import post2Img from '../assets/DSC_9645.JPG';
+import post3Img from '../assets/DSC_9640.JPG';
+
+const fallbackArticles = {
+  'choosing-the-right-ukl-membrane-housing': {
+    title: 'Choosing the Right UKL Membrane Housing for Residential and Industrial RO Systems',
+    image: post2Img,
+    author: 'ukloceansoftwars',
+    date: '26 April 2024',
+    category: 'Technical Guide',
+    excerpt: 'Selecting the appropriate membrane housing requires looking at operating pressure, feed water salinity, and end plug security.',
+    details: '<p>Selecting the appropriate membrane housing requires looking at operating pressure, feed water salinity, and end plug security. UKL offers premium FRP housings tailored for both commercial brackish water and heavy industrial desalination environments.</p><p>High quality FRP membrane housings ensure maximum durability under high pressure conditions. When designing your RO plant, ensure proper pressure rating and port configuration for maximum performance.</p>'
+  },
+  'end-entry-vs-side-entry-ukl-membrane-housings': {
+    title: 'End Entry vs Side Entry UKL Membrane Housings: Applications and Pressure Ratings Explained',
+    image: post3Img,
+    author: 'ukloceansoftwars',
+    date: '26 April 2024',
+    category: 'Technical Guide',
+    excerpt: 'End-entry membrane housings are ideal for small to medium RO units, whereas side-entry systems support complex manifold links.',
+    details: '<p>End-entry membrane housings are ideal for small to medium RO units, whereas side-entry systems support complex manifold links in large industrial reverse osmosis trains. Understanding the application helps define proper pressure ratings.</p><p>Side entry models allow header piping connections along the vessel side, drastically reducing pressure drops in large multi-element systems.</p>'
+  }
+};
+
 const NewsDetailPage = ({ slug }) => {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -31,12 +55,18 @@ const NewsDetailPage = ({ slug }) => {
             excerpt: item.shortDescription || '',
             details: item.blogDetails || ''
           });
+        } else if (fallbackArticles[slug]) {
+          setArticle(fallbackArticles[slug]);
         } else {
           setError(true);
         }
       } catch (err) {
         console.error('Error loading article:', err);
-        setError(true);
+        if (fallbackArticles[slug]) {
+          setArticle(fallbackArticles[slug]);
+        } else {
+          setError(true);
+        }
       } finally {
         setLoading(false);
       }

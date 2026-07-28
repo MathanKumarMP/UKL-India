@@ -8,6 +8,7 @@ import GalleryPage from './pages/GalleryPage';
 import NewsPage from './pages/NewsPage';
 import NewsDetailPage from './pages/NewsDetailPage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Preloader from './components/Preloader';
@@ -18,23 +19,37 @@ function App() {
   const [activeNav, setActiveNav] = useState('Home');
   const [selectedNewsSlug, setSelectedNewsSlug] = useState('');
 
-  // Read URL Hash on mount, hashchange, & popstate for Chrome Back/Forward buttons
+  // Read URL Hash & Path on mount, hashchange, & popstate for invalid route handling (404 Page)
   useEffect(() => {
     const handleHashSync = () => {
-      const rawHash = window.location.hash.replace('#', '');
-      const hash = rawHash.toLowerCase();
-      if (hash === 'about') setActiveNav('About Us');
-      else if (hash === 'product' || hash.includes('housing')) setActiveNav('Product');
-      else if (hash === 'quality') setActiveNav('Quality');
-      else if (hash === 'gallery') setActiveNav('Gallery');
-      else if (hash === 'news') setActiveNav('News');
-      else if (hash === 'contact') setActiveNav('Contact Us');
-      else if (hash.startsWith('news-detail-')) {
-        const slug = rawHash.replace('news-detail-', '');
+      const rawHash = window.location.hash.replace('#', '').trim();
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').trim().toLowerCase();
+
+      // Determine active route key (hash takes precedence if present, else path)
+      const target = rawHash ? rawHash.toLowerCase() : rawPath;
+
+      if (target.startsWith('news-detail-')) {
+        const slug = (rawHash || rawPath).replace(/^news-detail-/i, '');
         setSelectedNewsSlug(slug);
         setActiveNav('NewsDetail');
+      } else if (target === 'about') {
+        setActiveNav('About Us');
+      } else if (target === 'product' || target === 'housing' || (target.includes('housing') && !target.includes('news'))) {
+        setActiveNav('Product');
+      } else if (target === 'quality') {
+        setActiveNav('Quality');
+      } else if (target === 'gallery') {
+        setActiveNav('Gallery');
+      } else if (target === 'news') {
+        setActiveNav('News');
+      } else if (target === 'contact') {
+        setActiveNav('Contact Us');
+      } else if (target === 'home' || target === '') {
+        setActiveNav('Home');
+      } else {
+        // Unknown or wrong route -> Show 404 Page
+        setActiveNav('NotFound');
       }
-      else if (hash === 'home' || hash === '') setActiveNav('Home');
     };
 
     handleHashSync();
@@ -71,8 +86,10 @@ function App() {
       case 'Contact Us':
         return <ContactPage />;
       case 'Home':
-      default:
         return <Home />;
+      case 'NotFound':
+      default:
+        return <NotFoundPage setActiveNav={setActiveNav} />;
     }
   };
 

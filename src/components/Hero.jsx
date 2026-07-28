@@ -91,7 +91,7 @@ const Hero = () => {
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
                 </span>
-                <span className="btn-text">Learn More</span>
+                <span className="btn-text">Contact Us</span>
               </a>
             </div>
           </div>

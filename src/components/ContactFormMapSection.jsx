@@ -16,27 +16,38 @@ const ContactFormMapSection = () => {
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) {
-      newErrors.name = 'Please enter your name';
+      newErrors.name = 'Name is required';
     }
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Please enter your phone number';
-    } else if (!/^[0-9+\s-]{7,15}$/.test(formData.phone.trim())) {
-      newErrors.phone = 'Please enter a valid phone number';
+    
+    const cleanPhone = formData.phone.trim();
+    if (!cleanPhone) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^\d{10}$/.test(cleanPhone)) {
+      newErrors.phone = 'Phone number must be exactly 10 digits';
     }
-    if (!formData.email.trim()) {
-      newErrors.email = 'Please enter your email address';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid email address';
+
+    const cleanEmail = formData.email.trim();
+    if (!cleanEmail) {
+      newErrors.email = 'Email address is required';
+    } else if (!cleanEmail.includes('@') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      newErrors.email = 'Please enter a valid email address with @';
     }
+
     if (!formData.message.trim()) {
-      newErrors.message = 'Please write your message';
+      newErrors.message = 'Message is required';
     }
     return newErrors;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    if (name === 'phone') {
+      // Only allow digits and cap length at 10 digits
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData({ ...formData, phone: numericValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
     }
@@ -126,11 +137,12 @@ const ContactFormMapSection = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Your Name *"
                   value={formData.name}
                   onChange={handleChange}
                   className={errors.name ? 'input-error' : ''}
                   disabled={isSubmitting}
+                  required
                 />
                 {errors.name && (
                   <span className="field-error-text">
@@ -149,11 +161,14 @@ const ContactFormMapSection = () => {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (10 digits) *"
                   value={formData.phone}
                   onChange={handleChange}
+                  maxLength={10}
+                  inputMode="numeric"
                   className={errors.phone ? 'input-error' : ''}
                   disabled={isSubmitting}
+                  required
                 />
                 {errors.phone && (
                   <span className="field-error-text">
@@ -172,11 +187,12 @@ const ContactFormMapSection = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email Address"
+                  placeholder="Email Address *"
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'input-error' : ''}
                   disabled={isSubmitting}
+                  required
                 />
                 {errors.email && (
                   <span className="field-error-text">
@@ -194,12 +210,13 @@ const ContactFormMapSection = () => {
               <div className="input-group">
                 <textarea
                   name="message"
-                  placeholder="Write your message here..."
+                  placeholder="Write your message here... *"
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
                   className={errors.message ? 'input-error' : ''}
                   disabled={isSubmitting}
+                  required
                 ></textarea>
                 {errors.message && (
                   <span className="field-error-text">

@@ -56,10 +56,10 @@ const Footer = ({ setActiveNav }) => {
           <div className="footer-col">
             <h3 className="footer-col-title underline-title">Quick Links</h3>
             <ul className="footer-links">
-              <li><a href="#product" onClick={() => handleLinkClick('Product', '#product')}>8 Housing End Port</a></li>
-              <li><a href="#product" onClick={() => handleLinkClick('Product', '#product')}>8 Housing Side Port</a></li>
-              <li><a href="#product" onClick={() => handleLinkClick('Product', '#product')}>4 Housing End Port</a></li>
-              <li><a href="#product" onClick={() => handleLinkClick('Product', '#product')}>4 Housing Side Port</a></li>
+              <li><a href="#8-housing-end-port" onClick={() => handleLinkClick('Product', '#8-housing-end-port')}>8 Housing End Port</a></li>
+              <li><a href="#8-housing-side-port" onClick={() => handleLinkClick('Product', '#8-housing-side-port')}>8 Housing Side Port</a></li>
+              <li><a href="#4-housing-end-port" onClick={() => handleLinkClick('Product', '#4-housing-end-port')}>4 Housing End Port</a></li>
+              <li><a href="#4-housing-side-port" onClick={() => handleLinkClick('Product', '#4-housing-side-port')}>4 Housing Side Port</a></li>
             </ul>
           </div>
 
