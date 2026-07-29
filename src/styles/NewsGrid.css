@@ -177,19 +177,35 @@
   flex: 1;
 }
 
-/* Date Row with Calendar Icon */
+/* Date & Author Row */
 .article-date-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 14px;
 }
 
-.article-date-text {
+.article-date-group,
+.article-author-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.article-date-text,
+.article-author-text {
   font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 500;
   color: #64748b;
+}
+
+.article-author-text {
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Article Title */
