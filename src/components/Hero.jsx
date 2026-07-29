@@ -28,7 +28,7 @@ const Hero = () => {
   const currentBanner = hasBanners ? banners[currentIndex] : null;
 
   const title = (currentBanner && currentBanner.title) ? currentBanner.title : "A Market leader in FRP pressure vessels for water purification.";
-  const description = (currentBanner && currentBanner.description) ? currentBanner.description : "Advanced FRP pressure vessels engineered for exceptional strength, durability, and long-term performance in demanding applications.";
+  const description = (currentBanner && currentBanner.description) ? currentBanner.description : "";
   const rawBg = currentBanner && currentBanner.image ? currentBanner.image : null;
   const bannerBg = rawBg
     ? (rawBg.startsWith('http') ? rawBg : `${API_BASE}${rawBg.startsWith('/') ? '' : '/'}${rawBg}`)
@@ -45,6 +45,16 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [banners]);
 
+  const handlePrev = () => {
+    if (banners.length <= 1) return;
+    setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    if (banners.length <= 1) return;
+    setCurrentIndex((prev) => (prev + 1) % banners.length);
+  };
+
   const isExternalLink = linkUrl && typeof linkUrl === 'string' && linkUrl.startsWith('http');
 
   return (
@@ -54,6 +64,19 @@ const Hero = () => {
         <img src={bannerBg} alt="Ocean background" className="hero-bg-img" />
         <div className="dark-overlay"></div>
       </div>
+
+      {/* Carousel Dots Indicators */}
+      {banners.length > 1 && (
+        <div className="hero-carousel-dots">
+          {banners.map((_, idx) => (
+            <span
+              key={idx}
+              className={`hero-dot ${idx === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(idx)}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="hero-container">
         {/* Left Content Side */}

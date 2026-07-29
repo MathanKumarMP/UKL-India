@@ -53,19 +53,19 @@ const GalleryGrid = () => {
       try {
         const res = await fetch(`${API_BASE}/api/website/gallery`);
         const data = await res.json();
-        if (data.success && data.items && data.items.length > 0) {
+        if (data.success && data.items) {
           const photos = [];
           const videos = [];
 
           data.items.forEach(item => {
-            const fullUrls = item.mediaUrls.map(url => url.startsWith('http') ? url : `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`);
+            const fullUrls = (item.mediaUrls || []).map(url => url.startsWith('http') ? url : `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`);
             
             if (item.type === 'video') {
               videos.push({
                 id: item._id,
                 type: 'video',
                 title: item.title || 'Video Clip',
-                img: '', // Default placeholder
+                img: '',
                 videoUrl: fullUrls[0] || '',
                 images: fullUrls
               });
@@ -82,14 +82,13 @@ const GalleryGrid = () => {
           setPhotoItems(photos);
           setVideoItems(videos);
         } else {
-          // If no items in DB, load static fallbacks
-          setPhotoItems(fallbackPhotoItems);
-          setVideoItems(fallbackVideoItems);
+          setPhotoItems([]);
+          setVideoItems([]);
         }
       } catch (error) {
         console.error('Failed to fetch gallery items:', error);
-        setPhotoItems(fallbackPhotoItems);
-        setVideoItems(fallbackVideoItems);
+        setPhotoItems([]);
+        setVideoItems([]);
       } finally {
         setLoading(false);
       }
@@ -186,9 +185,42 @@ const GalleryGrid = () => {
 
         {/* Media Gallery Grid */}
         <div className="gallery-items-grid">
-          {loading && currentDisplayItems.length === 0 ? (
-            <div style={{ textAlign: 'center', width: '100%', gridColumn: '1 / -1', padding: '40px 0', fontSize: '16px', color: '#64748b' }}>
+          {loading ? (
+            <div style={{ textAlign: 'center', width: '100%', gridColumn: '1 / -1', padding: '60px 0', fontSize: '16px', color: '#64748b' }}>
               Loading media gallery from server...
+            </div>
+          ) : currentDisplayItems.length === 0 ? (
+            <div style={{
+              textAlign: 'center',
+              width: '100%',
+              gridColumn: '1 / -1',
+              padding: '60px 20px',
+              backgroundColor: '#f8fafc',
+              borderRadius: '16px',
+              border: '1px dashed #cbd5e1',
+              color: '#64748b',
+              margin: '10px 0'
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="1.5" style={{ marginBottom: '12px' }}>
+                {activeTab === 'photo' ? (
+                  <>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </>
+                ) : (
+                  <>
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </>
+                )}
+              </svg>
+              <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#334155', margin: '0 0 6px 0' }}>
+                No {activeTab === 'photo' ? 'Photos' : 'Videos'} Uploaded
+              </h3>
+              <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
+                There are currently no {activeTab === 'photo' ? 'gallery photos' : 'videos'} uploaded.
+              </p>
             </div>
           ) : currentDisplayItems.map((item) => {
             const currentImgIndex = cardImageIndices[item.id] || 0;
