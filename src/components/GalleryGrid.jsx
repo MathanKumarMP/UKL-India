@@ -58,7 +58,7 @@ const GalleryGrid = () => {
           const videos = [];
 
           data.items.forEach(item => {
-            const fullUrls = item.mediaUrls.map(url => url.startsWith('http') ? url : `${API_BASE}${url}`);
+            const fullUrls = item.mediaUrls.map(url => url.startsWith('http') ? url : `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`);
             
             if (item.type === 'video') {
               videos.push({

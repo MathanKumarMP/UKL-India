@@ -29,7 +29,10 @@ const Hero = () => {
 
   const title = (currentBanner && currentBanner.title) ? currentBanner.title : "A Market leader in FRP pressure vessels for water purification.";
   const description = (currentBanner && currentBanner.description) ? currentBanner.description : "Advanced FRP pressure vessels engineered for exceptional strength, durability, and long-term performance in demanding applications.";
-  const bannerBg = (currentBanner && currentBanner.image) ? `${API_BASE}${currentBanner.image}` : oceanBg;
+  const rawBg = currentBanner && currentBanner.image ? currentBanner.image : null;
+  const bannerBg = rawBg
+    ? (rawBg.startsWith('http') ? rawBg : `${API_BASE}${rawBg.startsWith('/') ? '' : '/'}${rawBg}`)
+    : oceanBg;
   const bannerImg = frpVessels; // Static product image stays on the right
   const linkUrl = (currentBanner && currentBanner.linkUrl) ? currentBanner.linkUrl : '#contact';
 

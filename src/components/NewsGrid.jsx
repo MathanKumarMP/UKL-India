@@ -58,7 +58,7 @@ const NewsGrid = () => {
         const mapped = data.articles.map(item => ({
           id: item._id,
           title: item.title,
-          image: item.thumbnail ? (item.thumbnail.startsWith('http') ? item.thumbnail : `${API_BASE}${item.thumbnail}`) : post2Img,
+          image: item.thumbnail ? (item.thumbnail.startsWith('http') ? item.thumbnail : `${API_BASE}${item.thumbnail.startsWith('/') ? '' : '/'}${item.thumbnail}`) : post2Img,
           author: item.author || 'UKL Team',
           date: formatDateStr(item.blogDate),
           excerpt: item.shortDescription || '',

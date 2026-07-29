@@ -44,7 +44,7 @@ const NewsDetailPage = ({ slug }) => {
           const item = data.article;
           setArticle({
             title: item.title,
-            image: item.thumbnail ? (item.thumbnail.startsWith('http') ? item.thumbnail : `${API_BASE}${item.thumbnail}`) : oceanBg,
+            image: item.thumbnail ? (item.thumbnail.startsWith('http') ? item.thumbnail : `${API_BASE}${item.thumbnail.startsWith('/') ? '' : '/'}${item.thumbnail}`) : oceanBg,
             author: item.author || 'UKL Team',
             date: new Date(item.blogDate).toLocaleDateString('en-IN', {
               day: 'numeric',
