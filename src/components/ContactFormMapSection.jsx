@@ -137,7 +137,7 @@ const ContactFormMapSection = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name *"
+                  placeholder="Enter Your Name *"
                   value={formData.name}
                   onChange={handleChange}
                   className={errors.name ? 'input-error' : ''}
@@ -161,7 +161,7 @@ const ContactFormMapSection = () => {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone Number (10 digits) *"
+                  placeholder="Enter Phone Number *"
                   value={formData.phone}
                   onChange={handleChange}
                   maxLength={10}
@@ -187,7 +187,7 @@ const ContactFormMapSection = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email Address *"
+                  placeholder="Enter Email Address *"
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'input-error' : ''}
