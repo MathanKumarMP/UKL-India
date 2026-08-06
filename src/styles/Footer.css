@@ -164,23 +164,48 @@ a.contact-text:hover {
   color: #d1d5db;
 }
 
-/* Bottom Bar Divider & Copyright */
+/* Bottom Bar Divider & Copyright with White Background */
 .footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 0;
+  margin-top: 30px;
   width: 100%;
 }
 
-.copyright-text {
+.footer-bottom-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.copyright-text,
+.developer-text {
   font-size: 14px;
-  font-weight: 600;
-  color: #e2e8f0;
-  text-align: center;
+  font-weight: 500;
+  color: #475569;
   margin: 0;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
+}
+
+.copyright-text strong,
+.developer-text strong,
+.developer-text a strong {
+  color: #0f172a !important;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.developer-text a:hover strong {
+  color: #004dad !important;
+  text-decoration: underline;
 }
 
 /* Responsive Breakpoints */
@@ -234,6 +259,12 @@ a.contact-text:hover {
   .footer-links li a {
     font-size: 14px;
     word-break: break-word;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
 

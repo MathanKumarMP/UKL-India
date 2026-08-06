@@ -22,8 +22,8 @@ const ContactFormMapSection = () => {
     const cleanPhone = formData.phone.trim();
     if (!cleanPhone) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\d{10}$/.test(cleanPhone)) {
-      newErrors.phone = 'Phone number must be exactly 10 digits';
+    } else if (!/^[6-9]\d{9}$/.test(cleanPhone) || /^(\d)\1{9}$/.test(cleanPhone)) {
+      newErrors.phone = 'Please enter a valid 10-digit mobile number';
     }
 
     const cleanEmail = formData.email.trim();
