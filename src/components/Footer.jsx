@@ -28,7 +28,7 @@ const Footer = ({ setActiveNav }) => {
             </p>
 
             {/* Social Media Icons below brand description */}
-            <div className="footer-social-icons">
+            {/* <div className="footer-social-icons">
               <a href="#" aria-label="Facebook" className="social-icon">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.79c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z" />
@@ -49,7 +49,7 @@ const Footer = ({ setActiveNav }) => {
                   <path d="M12.001 2c-5.523 0-10 4.477-10 10 0 1.258.232 2.46.654 3.57a7.971 7.971 0 0 1-.654 4.43c.277.92.83 1.724 1.583 2.298a7.96 7.96 0 0 1 4.43-.654C9.124 21.769 10.326 22 11.584 22c5.523 0 10-4.477 10-10s-4.477-10-10-10z" />
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Column 2: Quick Links */}
@@ -115,7 +115,7 @@ const Footer = ({ setActiveNav }) => {
 
       </div>
 
-      {/* Bottom Copyright Bar with White Background */}
+      {/* Bottom Copyright Bar */}
       <div className="footer-bottom-bar">
         <div className="footer-bottom-container">
           <p className="copyright-text">

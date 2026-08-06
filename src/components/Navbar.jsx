@@ -116,7 +116,7 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
                 <span className="hours-text">Mon-Sat: 8:00 am – 7.00 pm</span>
               </div>
 
-              <div className="social-icons-group">
+              {/* <div className="social-icons-group">
                 <a href="#" className="social-circle-btn" aria-label="Facebook">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="#171738">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -140,7 +140,7 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -164,11 +164,11 @@ a.contact-text:hover {
   color: #d1d5db;
 }
 
-/* Bottom Bar Divider & Copyright with White Background */
+/* Bottom Bar Divider & Copyright - Black Background */
 .footer-bottom-bar {
-  background-color: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  padding: 16px 0;
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px 0;
   margin-top: 30px;
   width: 100%;
 }
@@ -188,23 +188,25 @@ a.contact-text:hover {
 .copyright-text,
 .developer-text {
   font-size: 14px;
-  font-weight: 500;
-  color: #475569;
+  font-weight: 400;
+  color: #9ca3af;
   margin: 0;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 
 .copyright-text strong,
 .developer-text strong,
+.developer-text a,
 .developer-text a strong {
-  color: #0f172a !important;
-  font-weight: 700;
+  color: #e2e8f0 !important;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
+.developer-text a:hover,
 .developer-text a:hover strong {
-  color: #004dad !important;
+  color: #60a5fa !important;
   text-decoration: underline;
 }
 
@@ -261,7 +263,7 @@ a.contact-text:hover {
     word-break: break-word;
   }
 
-  .footer-bottom-bar {
+  .footer-bottom-container {
     flex-direction: column;
     justify-content: center;
     text-align: center;
