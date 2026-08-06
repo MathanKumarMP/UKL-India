@@ -25,6 +25,31 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      const menu = document.querySelector('.navbar-menu');
+      const toggle = document.querySelector('.mobile-toggle');
+      if (
+        mobileMenuOpen &&
+        menu &&
+        !menu.contains(e.target) &&
+        toggle &&
+        !toggle.contains(e.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener('touchstart', handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About Us', href: '#about' },
@@ -127,6 +152,12 @@ const Navbar = ({ activeNav = 'Home', setActiveNav }) => {
             <div className="navbar-logo" onClick={() => handleNavClick('Home', '#home')}>
               <img src={logo} alt="UKL Instruments" />
             </div>
+
+            {/* Backdrop for Mobile Nav Menu */}
+            <div
+              className={`mobile-menu-backdrop ${mobileMenuOpen ? 'open' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            ></div>
 
             {/* Desktop Navigation Links with Active Green Underline Bar & Separators on Scroll */}
             <nav className={`navbar-menu ${mobileMenuOpen ? 'open' : ''}`}>
