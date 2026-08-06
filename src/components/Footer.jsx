@@ -77,7 +77,7 @@ const Footer = ({ setActiveNav }) => {
 
           {/* Column 4: Contact Info */}
           <div className="footer-col contact-col">
-            <h3 className="footer-col-title">Contact Info</h3>
+            <h3 className="footer-col-title underline-title">Contact Info</h3>
             <div className="contact-list">
               <div className="contact-item">
                 <span className="contact-badge-icon">
