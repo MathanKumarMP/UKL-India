@@ -119,7 +119,7 @@ const Footer = ({ setActiveNav }) => {
       <div className="footer-bottom-bar">
         <div className="footer-bottom-container">
           <p className="copyright-text">
-            © Copyright 2025 <strong>UKL Instruments</strong>. All rights reserved.
+            © Copyright 2026 <strong>UKL Instruments</strong>. All rights reserved.
           </p>
           <p className="developer-text">
             Designed & Developed by <a href="https://www.oceansoftwares.com/" target="_blank" rel="noopener noreferrer"><strong>Ocean Softwares Private Limited</strong></a>

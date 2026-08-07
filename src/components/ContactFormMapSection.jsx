@@ -41,7 +41,11 @@ const ContactFormMapSection = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'phone') {
+    if (name === 'name') {
+      // Only allow letters and spaces
+      const alphabeticValue = value.replace(/[^a-zA-Z\s]/g, '');
+      setFormData({ ...formData, name: alphabeticValue });
+    } else if (name === 'phone') {
       // Only allow digits and cap length at 10 digits
       const numericValue = value.replace(/\D/g, '').slice(0, 10);
       setFormData({ ...formData, phone: numericValue });
